@@ -38,15 +38,22 @@ class ImportSERP extends Command
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        $csvFile = 'storage/SERP4.csv';
-        $file_handle = fopen($csvFile, 'r');
+    public function handle() {
+        $paths = [
+            'storage/SERP1.csv',
+            'storage/SERP2.csv',
+            'storage/SERP3.csv',
+            'storage/SERP4.csv',
+        ];
+
+        foreach ($paths as $path) {
+            $this->handleSERPFile($path);
+        }
+    }
+
+
+    private function handleSERPFile($filepath) {
+        $file_handle = fopen($filepath, 'r');
         if(!$file_handle) {
             return;
         }

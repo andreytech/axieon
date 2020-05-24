@@ -34,15 +34,22 @@ class ImportBacklinkUniverse extends Command
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
+    public function handle() {
+        $BLUs = [
+            'is_major' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Major Publication (MP).csv',
+            'is_minor' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Influencer Publication (IP).csv',
+            'is_local' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Local Publication (LP).csv',
+        ];
+
+        foreach ($BLUs as $universe => $path) {
+            $this->handleBU($path, $universe);
+        }
+
+    }
+
+    public function handleBLU($filepath, $universe)
     {
-        $csvFile = 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Major Publication (MP).csv';
-        $file_handle = fopen($csvFile, 'r');
+        $file_handle = fopen($filepath, 'r');
         if(!$file_handle) {
             return;
         }
@@ -56,22 +63,27 @@ class ImportBacklinkUniverse extends Command
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules(); //$rules is a Pdp\Rules object
 
-        $universe = 'is_major';
-
         while (!feof($file_handle)) {
             $line_of_text = fgetcsv($file_handle);
             if(empty(trim($line_of_text[1]))) {
                 continue;
             }
 
-            $domain = parse_url($line_of_text[1], PHP_URL_HOST);
+            $domain = trim($line_of_text[1]);
+            if(strpos($line_of_text[1], 'http') !== 0) {
+                $domain = 'http://'.trim($line_of_text[1]);
+            }
+
+            $domain = parse_url($domain, PHP_URL_HOST);
             $domain_obj = $rules->resolve($domain); //$domain is a Pdp\Domain object
             $tld = $domain_obj->getRegistrableDomain();
 
             if(empty($tld)) {
+                $this->comment("tld empty for ".$domain." ". $line_of_text[1]);
                 continue;
             }
-            echo "Can't find tld for {$line_of_text[1]}\n";
+
+            $brand_name = trim($line_of_text[0]);
 
 //            $subdomain = $domain_obj->getSubDomain();
 
@@ -79,17 +91,17 @@ class ImportBacklinkUniverse extends Command
             if($existing_domain) {
                 DB::table('domains')->where('id', $existing_domain->id)->update([
                     $universe => 1,
-                    'brand_name' => $line_of_text[0],
+                    'brand_name' => $brand_name,
                 ]);
             }else {
                 DB::table('domains')->insert([
                     'domain' => $tld,
                     $universe => 1,
-                    'brand_name' => $line_of_text[0],
+                    'brand_name' => $brand_name,
                 ]);
             }
 
-//            var_dump($line_of_text);exit;
+//            dd($line_of_text);exit;
 
         }
         fclose($file_handle);

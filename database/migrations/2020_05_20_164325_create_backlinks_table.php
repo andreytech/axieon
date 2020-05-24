@@ -15,15 +15,16 @@ class CreateBacklinksTable extends Migration
     {
         Schema::create('backlinks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('link_from');
-            $table->unsignedBigInteger('link_to');
+            $table->unsignedBigInteger('page_from');
+            $table->unsignedBigInteger('page_to');
             $table->string('referring_page_title', 2000);
             $table->string('link_anchor', 2000);
             $table->boolean('is_dofollow');
             $table->dateTime('first_seen');
+            $table->dateTime('last_seen')->nullable();
 
-            $table->foreign('link_from')->references('id')->on('pages');
-            $table->foreign('link_to')->references('id')->on('pages');
+            $table->foreign('page_from')->references('id')->on('pages');
+            $table->foreign('page_to')->references('id')->on('pages');
         });
     }
 
