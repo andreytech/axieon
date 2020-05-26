@@ -55,7 +55,6 @@ class ImportHistoricalBL extends Command
             ->orWhere('is_minor', 1)
             ->orWhere('is_local', 1)
             ->pluck('id', 'domain');
-//        dd(count($domains_bu));
 
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules(); //$rules is a Pdp\Rules object
@@ -77,6 +76,12 @@ class ImportHistoricalBL extends Command
             }
             $domain_to_id = $domains_from_serp[$tld_to];
 
+            if(DB::table('domain_backlinks')->where([
+                'domain_id' => $domain_to_id
+            ])->first()) {
+                continue;
+            }
+
 //            DB::table('domains')->where('domain', $domain)->update(['is_started' => 1]);
 
             if (($handle = fopen($path.$file, "r")) === FALSE) {
@@ -86,8 +91,8 @@ class ImportHistoricalBL extends Command
 
 //            $this->comment($tld_to);
 
-            fgetcsv($handle, 1000, "\t");
-            while (($data = fgetcsv($handle, 1000)) !== FALSE) {
+            fgetcsv($handle, "\t");
+            while (($data = fgetcsv($handle)) !== FALSE) {
                 if(empty($data[5]) || empty($data[9])) {
                     continue;
                 }
@@ -103,6 +108,30 @@ class ImportHistoricalBL extends Command
                     }
                 }
                 if(!$domain_found_in_bu) {
+                    continue;
+                }
+
+                $domain_to = parse_url($data[9], PHP_URL_HOST);
+                $path_to = parse_url($data[9], PHP_URL_PATH);
+
+                $tld_pos = strpos($domain_to, $tld_to);
+                if ($tld_pos === false) {
+                    $this->comment("Domain not found in Link URL for {$tld_to}|{$data[9]}");
+                    continue;
+                }
+                $subdomain_to = '';
+                if($tld_pos !== 0) {
+                    $subdomain_to = substr($domain_to, 0, $tld_pos - 1);
+                }
+//                dd($subdomain_to);
+
+                $pageToModel = Page::query()->where([
+                    'domain_id' => $domain_to_id,
+                    'subdomain' => (string)$subdomain_to,
+                    'path' => $path_to,
+                ])->first();
+
+                if(!$pageToModel) {
                     continue;
                 }
 
@@ -128,30 +157,6 @@ class ImportHistoricalBL extends Command
                 ],
                     ['is_from_serp' => 0]
                 );
-
-                $domain_to = parse_url($data[9], PHP_URL_HOST);
-                $path_to = parse_url($data[9], PHP_URL_PATH);
-
-                $tld_pos = strpos($domain_to, $tld_to);
-                if ($tld_pos === false) {
-                    $this->comment("Domain not found in Link URL for {$tld_to}|{$data[9]}");
-                    continue;
-                }
-                $subdomain_to = '';
-                if($tld_pos !== 0) {
-                    $subdomain_to = substr($domain_to, 0, $tld_pos - 1);
-                }
-//                dd($subdomain_to);
-
-                $pageToModel = Page::query()->where([
-                    'domain_id' => $domain_to_id,
-                    'subdomain' => (string)$subdomain_to,
-                    'path' => $path_to,
-                ])->first();
-
-                if(!$pageToModel) {
-                    continue;
-                }
 
 //                $first_seen = Carbon::parse($data[15]);
 //                dd($data[15], $first_seen->toDateTimeString());
