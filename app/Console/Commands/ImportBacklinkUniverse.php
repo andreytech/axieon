@@ -42,7 +42,7 @@ class ImportBacklinkUniverse extends Command
         ];
 
         foreach ($BLUs as $universe => $path) {
-            $this->handleBU($path, $universe);
+            $this->handleBLU($path, $universe);
         }
 
     }

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'backlins_csvs_path' => 'C:\Users\Presto\Downloads/'
+    'backlinks_csvs_path' => env('BACKLINKS_CSVS_PATH','C:\Users\Presto\Downloads/')
 ];

@@ -72,9 +72,7 @@ class ImportSERP extends Command
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules(); //$rules is a Pdp\Rules object
 
-        while (!feof($file_handle)) {
-            $line_of_text = fgetcsv($file_handle);
-
+        while (($line_of_text = fgetcsv($file_handle, 1000)) !== FALSE) {
             if(!in_array($line_of_text[22], ['Organic'])) {
                 continue;
             }

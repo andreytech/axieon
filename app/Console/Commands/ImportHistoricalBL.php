@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Page;
 use Illuminate\Console\Command;
-use Illuminate\Support\Carbon;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Pdp\Cache;
 use Pdp\CurlHttpClient;
@@ -36,14 +36,9 @@ class ImportHistoricalBL extends Command
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
-        $path = config('axieon.backlins_csvs_path');
+        $path = config('axieon.backlinks_csvs_path');
         $files = array_diff(scandir($path), array('..', '.'));
 //        dd($files);
         $domains_crawled = [];
@@ -98,7 +93,9 @@ class ImportHistoricalBL extends Command
                 }
 
                 $domain_from = parse_url($data[5], PHP_URL_HOST);
+//                $domain_from = mb_convert_encoding($domain_from, 'UTF-8');
                 $path_from = parse_url($data[5], PHP_URL_PATH);
+//                $path_from = mb_convert_encoding($path_from, 'UTF-8');
 
                 $domain_found_in_bu = false;
                 foreach ($domains_bu as $domain_bu => $domain_id) {
@@ -116,7 +113,7 @@ class ImportHistoricalBL extends Command
 
                 $tld_pos = strpos($domain_to, $tld_to);
                 if ($tld_pos === false) {
-                    $this->comment("Domain not found in Link URL for {$tld_to}|{$data[9]}");
+                    $this->comment("Domain not found in Link URL for {$tld_to}|{$data[9]}|{$data[0]}");
                     continue;
                 }
                 $subdomain_to = '';
@@ -150,13 +147,35 @@ class ImportHistoricalBL extends Command
 
                 $domain_backlinks_count++;
 
-                $pageFromModel = Page::query()->firstOrCreate([
-                    'domain_id' => $domain_from_id,
-                    'subdomain' => (string)$subdomain_from,
-                    'path' => $path_from,
-                ],
-                    ['is_from_serp' => 0]
-                );
+                try {
+                    $is_encoding_error = false;
+                    $pageFromModel = Page::query()->firstOrCreate([
+                        'domain_id' => $domain_from_id,
+                        'subdomain' => (string)$subdomain_from,
+                        'path' => $path_from,
+                    ],
+                        ['is_from_serp' => 0]
+                    );
+                }catch (QueryException $e) {
+                    if($e->getCode() === '22007') {
+                        $this->comment("Encoding error {$domain_to_id}, {$data[0]}");
+                        $is_encoding_error = true;
+                    }else {
+                        throw $e;
+                    }
+                }
+
+                if($is_encoding_error) {
+                    $path_from = mb_convert_encoding($path_from, 'UTF-8');
+                    $subdomain_from = mb_convert_encoding($subdomain_from, 'UTF-8');
+                    $pageFromModel = Page::query()->firstOrCreate([
+                        'domain_id' => $domain_from_id,
+                        'subdomain' => (string)$subdomain_from,
+                        'path' => $path_from,
+                    ],
+                        ['is_from_serp' => 0]
+                    );
+                }
 
 //                $first_seen = Carbon::parse($data[15]);
 //                dd($data[15], $first_seen->toDateTimeString());
