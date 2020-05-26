@@ -52,7 +52,7 @@ class ImportHistoricalBL extends Command
             ->pluck('id', 'domain');
 
         $manager = new Manager(new Cache(), new CurlHttpClient());
-        $rules = $manager->getRules(); //$rules is a Pdp\Rules object
+        $rules = $manager->getRules();
 
         foreach($files as $file) {
             if(strstr($file, '.crdownload') !== false) {
@@ -108,6 +108,21 @@ class ImportHistoricalBL extends Command
                     continue;
                 }
 
+                $domain_obj = $rules->resolve($domain_from);
+                $tld_from = $domain_obj->getRegistrableDomain();
+                $subdomain_from = $domain_obj->getSubDomain();
+                if (!$tld_from) {
+                    $this->comment("TLD not found for {$domain_from}|{$data[5]}");
+                    continue;
+                }
+                if(!isset($domains_bu[$tld_from])) {
+                    continue;
+                }
+
+                $domain_from_id = $domains_bu[$tld_from];
+
+                $domain_backlinks_count++;
+
                 $domain_to = parse_url($data[9], PHP_URL_HOST);
                 $path_to = parse_url($data[9], PHP_URL_PATH);
 
@@ -132,21 +147,6 @@ class ImportHistoricalBL extends Command
                     continue;
                 }
 
-                $domain_obj = $rules->resolve($domain_from);
-                $tld_from = $domain_obj->getRegistrableDomain();
-                $subdomain_from = $domain_obj->getSubDomain();
-                if (!$tld_from) {
-                    $this->comment("TLD not found for {$domain_from}|{$data[5]}");
-                    continue;
-                }
-                if(!isset($domains_bu[$tld_from])) {
-                    continue;
-                }
-
-                $domain_from_id = $domains_bu[$tld_from];
-
-                $domain_backlinks_count++;
-
                 try {
                     $is_encoding_error = false;
                     $pageFromModel = Page::query()->firstOrCreate([
@@ -158,7 +158,7 @@ class ImportHistoricalBL extends Command
                     );
                 }catch (QueryException $e) {
                     if($e->getCode() === '22007') {
-                        $this->comment("Encoding error {$domain_to_id}, {$data[0]}");
+                        $this->comment("Encoding error {$tld_to}, {$data[0]}");
                         $is_encoding_error = true;
                     }else {
                         throw $e;
@@ -210,9 +210,9 @@ class ImportHistoricalBL extends Command
         $domains = DB::table('domains')->where('is_started', 1)->get();
         foreach ($domains as $domain) {
             if(!in_array($domain->domain, $domains_crawled)) {
-                if($domain->domain == 'youtube.com') {
-                    continue;
-                }
+//                if($domain->domain == 'youtube.com') {
+//                    continue;
+//                }
 //                DB::table('domains')->where('id', $domain->id)->update(['is_started' => 0]);
 //                echo $domain->domain."\n";
             }

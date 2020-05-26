@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Console\Commands\ImportHistoricalBL;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
@@ -76,7 +75,7 @@ class BacklinkImportTest extends TestCase
         }
 
 //        $this->mockCSVsLocationPath();
-        config(['axieon.backlins_csvs_path' => base_path('tests/Unit/TestFiles/')]);
+        config(['axieon.backlinks_csvs_path' => base_path('tests/Unit/TestFiles/')]);
         Artisan::call('historicalbl:import');
 
         $this->assertDatabaseHas('pages', [
