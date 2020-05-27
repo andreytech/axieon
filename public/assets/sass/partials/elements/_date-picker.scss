@@ -1,0 +1,62 @@
+@import "../../node_modules/air-datepicker/src/sass/datepicker";
+@import "../../node_modules/air-datepicker/src/sass/cell";
+@import "../../node_modules/air-datepicker/src/sass/navigation";
+@import "../../node_modules/air-datepicker/src/sass/timepicker";
+
+.datepicker--content {
+    padding: 12px;
+}
+
+.datepicker--day-name {
+    color: $pink-color-100;
+    font-weight: bold;
+}
+
+.ax-datepicker {
+    border-radius: 3px;
+    text-align: center;
+    border: 1px solid $pink-color-100;
+    color: $pink-color-100;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    @include font-size(14px);
+    @include body-font(m);
+    cursor: pointer;
+    @include transition(all 300ms ease-in-out);
+    min-width: 200px;
+    height: 45px;
+
+    &::placeholder {
+        color: $pink-color-100;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        color: $pink-color-100;
+    }
+
+    &::-ms-input-placeholder {
+        color: $pink-color-100;
+    }
+
+    &:hover,
+    &:focus {
+        background: $pink-color-100;
+        color: #fff;
+        outline: none;
+
+        &::placeholder {
+            color: #fff;
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color: #fff;
+        }
+
+        &::-ms-input-placeholder {
+            color: #fff;
+        }
+    }
+
+}

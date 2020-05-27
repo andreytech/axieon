@@ -1,0 +1,47 @@
+.ax-caution {
+
+    width: 100%;
+    padding: 20px;
+    border: 1px dashed $pink-color-100;
+    margin: 20px 0;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: $gr-color;
+
+    .caution-icon {
+        width: 40px;
+        height: 27px;
+        margin: 0 20px 0 0;
+    }
+
+    .text {
+        @include fontSize(15px);
+        line-height: 1.47;
+        max-width: 815px;
+    }
+
+    &--warning {
+        color: $orange-color;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    &--center {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    @include mobile {
+        flex-direction: column;
+
+        .text {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+}

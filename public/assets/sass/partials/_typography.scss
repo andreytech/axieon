@@ -1,0 +1,131 @@
+@import "font";
+
+body {
+    @include body-font(r);
+    @include font-size(15px);
+}
+
+p {
+    @include font-size(15px);
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @include body-font(b);
+    font-stretch: normal;
+}
+
+h1 {
+    @include font-size(50px);
+}
+
+h2 {
+    @include font-size(40px);
+}
+
+h3 {
+    @include font-size(26px);
+    @include body-font(r);
+}
+
+h4 {
+    @include font-size(20px);
+    margin: 20px 0;
+}
+
+h5 {
+    @include font-size(18px);
+}
+
+.ax-diviation-text {
+    color: $orange-color;
+    @include font-size(14px);
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.ax-long-text {
+    @include center-x;
+    width: 500px;
+    font-style: normal;
+
+    @include mobile {
+        width: 300px;
+    }
+}
+
+//text colors
+
+.ax-text {
+
+    //align{
+    &--alignleft {
+        text-align: left;
+    }
+
+    &--alignright {
+        text-align: right;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    //colors
+
+    &--blue {
+        color: $blue-color;
+    }
+
+    &--pink {
+        color: $pink-color;
+    }
+
+    &--purple {
+        color: $purple-color-100;
+    }
+
+    &--yellow {
+        color: $yellow-color;
+    }
+
+    &--orange {
+        color: $orange-color;
+    }
+
+    &--green {
+        color: $green-color;
+    }
+}
+
+
+
+
+
+@include mobile {
+    h1 {
+        @include font-size(40px);
+    }
+
+    h2 {
+        @include font-size(30px);
+    }
+
+    h3 {
+        @include font-size(20px);
+        @include body-font(r);
+    }
+
+    h4 {
+        @include font-size(18px);
+    }
+
+    h5 {
+        @include font-size(16px);
+    }
+}

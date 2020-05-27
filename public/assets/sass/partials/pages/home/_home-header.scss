@@ -1,0 +1,134 @@
+.ax-home-header {
+    width: 100%;
+    padding: 40px 0;
+
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__nav-container {
+        width: calc(100% - 145px);
+        border: #000;
+    }
+
+    &__logo {
+        width: 145px;
+        padding: 5px 0 0 0;
+    }
+
+    &__navigation {
+        padding-left: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            li {
+                display: block;
+
+                &:before {
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background: transparent;
+                    display: block;
+                }
+            }
+
+            a {
+                display: block;
+                @include fontSize(16px);
+                font-weight: 500;
+                color: $gr-color;
+                padding: 15px 20px;
+                text-decoration: none;
+
+                &:hover {
+                    color: $pink-color;
+                    @include transition(all ease 0.3s);
+                }
+
+            }
+        }
+
+        .ax-btn {
+            margin-left: 10px;
+        }
+
+        @include tablet {
+            flex-wrap: wrap;
+            position: absolute;
+            width: 300px;
+            background: #fff;
+            top: 55px;
+            border-radius: 8px;
+            box-shadow: 0 5px 22px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid $gr-color-100;
+            z-index: 1000;
+            right: 20px;
+            padding-left: 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            @include transition(all 300ms ease-in-out);
+
+            ul {
+                flex-direction: column;
+                width: 100%;
+
+                li {
+                    width: 100%;
+
+                    a {
+                        padding: 15px 30px;
+                        border-bottom: 1px solid $gr-color-100;
+                    }
+                }
+            }
+
+            .ax-home-header__btns-container {
+                width: 100%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+
+                .ax-btn {
+                    width: calc(50% - 10px);
+                }
+            }
+
+            &.open {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    }
+
+    .ax-btn--menu {
+        display: none;
+    }
+
+    @include tablet {
+        position: relative;
+        padding: 25px 0;
+
+        .ax-btn--menu {
+            display: block;
+            @include center-y;
+            right: 25px;
+        }
+    }
+}

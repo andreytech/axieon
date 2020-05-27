@@ -1,0 +1,107 @@
+&.on {
+    .number-circle {
+        &:after {
+            background: #fff;
+        }
+    }
+
+    span {
+        border-color: rgba(255, 255, 255, 0.2);
+        margin-top: -2px;
+    }
+}
+
+&--lg {
+    @include fontSize(46px);
+    height: 100%;
+}
+
+&--sm,
+&--md {
+
+    min-height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 21px 10px 21px 0;
+    text-align: left;
+    height: auto;
+
+    .number-circle {
+        @include fontSize(46px);
+        width: 30%;
+        height: auto;
+        border: none;
+        margin: 0 0 0 0;
+        background: none;
+        border-radius: 0;
+
+        &,
+        &:after,
+        span {
+            background: none !important;
+            border: none;
+        }
+
+    }
+
+
+    .tooltip-icon {
+        top: 5px;
+    }
+
+    .card-info {
+        @include fontSize(15px);
+        width: 70%;
+        padding-left: 10px;
+    }
+}
+
+&--md {
+    min-height: 139px;
+}
+
+&--mdh {
+    min-height: 100px;
+
+    .number-circle {
+        @include fontSize(26px);
+        width: auto;
+        height: auto;
+        border: none;
+        margin: 10px 0 0 0;
+        background: none;
+        border-radius: 0;
+
+        &:after {
+            display: none;
+        }
+
+    }
+
+    .tooltip-icon {
+        top: 5px;
+    }
+
+    .card-info {
+        @include fontSize(16px);
+    }
+}
+
+@include mobile {
+
+    &--sm,
+    &--md {
+        min-height: 70px;
+
+        .number-circle {
+            width: 20%;
+            @include font-size(35px);
+        }
+
+        .card-info {
+            width: 80%;
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,196 @@
+.ax-chart {
+    border-radius: 5px;
+    width: 100%;
+    min-height: 300px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    &__header {
+        background: #fcfcfc;
+        border: solid 1px #ebebeb;
+        padding: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        >div {
+            width: 50%;
+            display: flex;
+
+            &.ax-left-controls {
+                justify-content: flex-start;
+            }
+
+            &.ax-right-controls {
+                justify-content: flex-end;
+
+                .ax-key-select,
+                .ax-select {
+                    margin: 0 0 0 15px;
+                }
+            }
+        }
+
+        .ax-key-select,
+        .ax-select {
+            margin-bottom: 0;
+        }
+
+    }
+
+    &__body {
+        padding: 30px 20px 15px 20px;
+
+        .apexcharts-legend {
+            display: none;
+        }
+    }
+
+    &__footer {
+        padding: 0 50px 30px 50px;
+        border-top: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+
+        ul {
+            .ax-legend {
+                @include font-size(14px);
+                position: relative;
+                line-height: 2.4;
+                padding-left: 25px;
+
+                &:before {
+                    content: '';
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 14px;
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                }
+
+                span {
+                    color: $gr-color-400;
+                    @include body-font(m);
+                    display: inline-block;
+                    margin-left: 20px;
+                }
+
+                &--blue {
+                    a {
+                        color: $blue-color;
+                    }
+
+                    &:before {
+                        background: $blue-color;
+                    }
+                }
+
+                &--orange {
+                    a {
+                        color: $orange-color;
+                    }
+
+                    &:before {
+                        background: $orange-color;
+                    }
+                }
+
+                &--purple {
+                    a {
+                        color: $purple-color-200;
+                    }
+
+                    &:before {
+                        background: $purple-color-200;
+                    }
+                }
+
+                &--yellow {
+                    a {
+                        color: $yellow-color;
+                    }
+
+                    &:before {
+                        background: $yellow-color;
+                    }
+                }
+            }
+        }
+    }
+
+    @include custom-bp(1000) {
+        &__header {
+            flex-direction: column;
+
+            >div {
+                width: 100%;
+                justify-content: center !important;
+                margin: 10px 0;
+            }
+        }
+
+        &__footer {
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            .ax-key-select {
+                margin-right: 0;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .ax-legend {
+                    width: 100%;
+                    padding-left: 0;
+                    text-align: center;
+
+                    &:before {
+                        left: auto;
+                        margin-left: -20px;
+                    }
+
+                    span {
+                        margin-left: 0;
+                    }
+
+                }
+            }
+
+
+        }
+    }
+
+    @include mobile {
+        &__header {
+            padding: 15px;
+
+            >div {
+
+                &.ax-right-controls,
+                &.ax-left-controls {
+
+                    .ax-key-select,
+                    .ax-select,
+                    .ax-datepicker {
+                        margin: 0 0 15px 0 !important;
+                    }
+                }
+            }
+
+        }
+
+        &__body,
+        &__footer {
+            padding: 15px;
+        }
+    }
+}

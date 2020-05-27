@@ -1,0 +1,8 @@
+a {
+    @include transition(all 300ms ease-in-out);
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}

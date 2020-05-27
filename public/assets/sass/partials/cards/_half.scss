@@ -1,0 +1,16 @@
+.ax-card--half {
+    padding: 0 10px 30px 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow: hidden;
+
+    .number-circle {
+        margin-top: -40px;
+
+        span {
+            padding-top: 30px;
+        }
+    }
+}

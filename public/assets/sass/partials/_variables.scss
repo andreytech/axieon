@@ -1,0 +1,73 @@
+// gray color
+
+$gr-color: #302f35;
+$gr-color-400: #686868;
+$gr-color-300: #afafaf;
+$gr-color-200: #d8d8d8;
+$gr-color-100: #f7f7f8;
+
+// purple color
+
+$purple-color : #2b179c;
+$purple-color-200: #3923b3;
+$purple-color-100: #614ae4;
+
+// blue color
+
+$blue-color: #35ccfb;
+
+// pink color
+
+$pink-color : #f9397b;
+$pink-color-100 : #FF5490;
+$pink-color-300 : #AD174B;
+
+
+
+$orange-color : #ff6e54;
+
+// yellow color
+
+$yellow-color : #ffb32d;
+
+// green color
+
+$green-color : #2adcbd;
+
+// $bs-color: #302f35;
+// $blue-color: #35ccfb;
+// $db-color: #3923b3;
+// $tr-color: #2adcbd;
+// $or-color: #ff6e54;
+// $yl-color: #ffb32d;
+// $pu-color: #614ae4;
+// $hg-color: #f9397b;
+
+$desktop : 1220px;
+$tablet: 1025px;
+$mini-tablet: 987;
+$mobile: 768px;
+
+
+$flagsImagePath: "../images/";
+
+
+$hamburger-padding-x : 0 !default;
+$hamburger-padding-y : 0 !default;
+$hamburger-layer-width : 25px !default;
+$hamburger-layer-height : 2px !default;
+$hamburger-layer-spacing : 4px !default;
+$hamburger-layer-color : $purple-color-200;
+$hamburger-layer-border-radius : 3px !default;
+$hamburger-hover-opacity : 1 !default;
+$hamburger-hover-transition-duration : 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter : opacity(50%) !default;
+
+// Types (Remove or comment out what you don’t need)
+$hamburger-types: (slider);

@@ -1,0 +1,164 @@
+.ax-signup {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__logo {
+        display: block;
+        margin: 0 0 77px 0;
+    }
+
+    &__leftbar {
+        width: 475px;
+        height: 100%;
+
+        color: #fff;
+        padding: 65px 88px;
+        position: relative;
+        overflow: hidden;
+
+        background-image: linear-gradient(143deg, #220f88 11%, #3e29b5 80%);
+
+        &:before {
+            content: '';
+            background: url('../../assets/images/signup-shape.svg') no-repeat right bottom;
+            width: 383px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0.4;
+        }
+
+        &:after {
+            content: '';
+            background: url('../../assets/images/illustration-analytics.png') no-repeat;
+            position: absolute;
+            top: 350px;
+            right: -80px;
+            width: 500px;
+            height: 400px;
+        }
+
+        h3 {
+            @include fontSize(30px);
+            color: #fff;
+            line-height: 1.2;
+
+            i {
+                @include body-font(r);
+                font-style: normal;
+            }
+
+            span {
+                color: $green;
+                display: block;
+            }
+        }
+
+        @include tablet {
+            width: 40%;
+            padding: 50px;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        width: calc(100% - 475px);
+        padding: 120px 170px;
+        color: $gr-color;
+        background: #fff;
+
+        h3 {
+            @include fontSize(26px);
+            color: $purple-color-200;
+            margin-bottom: 40px;
+            ;
+        }
+
+        @include custom-bp(1330) {
+            padding: 120px 50px;
+        }
+
+        @include tablet {
+            width: 60%;
+            padding: 50px;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    &__form {
+        max-width: 700px;
+
+        fieldset {
+            label {
+                margin-bottom: 0;
+            }
+
+            input {
+                height: 50px;
+            }
+        }
+
+    }
+
+    &__signin {
+        display: block;
+        margin: 40px 0 0 0;
+        @include body-font(sb);
+
+        a {
+            display: inline-block;
+            color: $pink-color;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    @include mobile {
+        justify-content: flex-start;
+
+        &__leftbar,
+        &__content {
+            width: 100%;
+
+            h3 {
+                text-align: center;
+            }
+        }
+
+        &__form {
+            max-width: 100%;
+        }
+
+        &__logo {
+            margin: 0 auto 20px auto;
+        }
+
+        &__leftbar {
+            height: auto;
+            text-align: center;
+            padding: 40px 0;
+
+            h3 {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+    }
+}

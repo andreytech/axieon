@@ -1,0 +1,223 @@
+.ax-validation {
+    padding: 0 0 100px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: '';
+        background: #f7f7f8;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 400px;
+    }
+
+    .wrap {
+        @include pattern-shape();
+
+        &:before {
+            left: -180px;
+            top: 75%;
+        }
+
+        &:after {
+            right: -150px;
+            top: 150px;
+        }
+    }
+
+    &__testimonial {
+        margin: 80px 0;
+        position: relative;
+        padding-top: 100px;
+
+        &__bio {
+            box-shadow: 0 5px 22px 0 rgba(0, 0, 0, 0.12);
+            background-color: #ffffff;
+            border-radius: 10px;
+            width: 432px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include center-x;
+            top: 0;
+            z-index: 10;
+
+            &:before {
+                content: '';
+                @include center-x;
+                bottom: -24px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 24px 12px 0 12px;
+                border-color: #fff transparent transparent transparent;
+            }
+        }
+
+        &__image {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 110px;
+            height: 110px;
+            display: block;
+
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        &__text {
+            width: calc(100% - 130px);
+            text-align: left;
+            @include body-font(b);
+
+            span {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        &__name {
+            color: $purple-color-200;
+            @include font-size(20px)
+        }
+
+        &__company,
+        &__role {
+            @include font-size(16px);
+        }
+
+        &__company {
+            color: $green-color;
+        }
+
+        //content
+        &__content {
+            padding: 122px 74px 74px 74px;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 22px 0 rgba(57, 35, 179, 0.2);
+            background-image: linear-gradient(109deg, #4a2ee2 5%, $purple-color-200 97%);
+            position: relative;
+            z-index: 1;
+
+            &,
+            p {
+                @include font-size(18px);
+
+                >span {
+                    color: $green-color;
+                    @include body-font(b);
+                }
+            }
+
+        }
+
+        &__positions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        &__startingPosition,
+        &__currentPosition {
+            border-radius: 5px;
+            border: dotted 2px rgba(255, 255, 255, 0.1);
+            width: 240px;
+            height: 103px;
+            position: relative;
+            padding: 15px 80px 15px 30px;
+            text-align: center;
+
+            span {
+                display: block;
+                width: 100%;
+                @include font-size(15px);
+            }
+
+            .position-number {
+                @include font-size(28px);
+                @include body-font(b);
+            }
+
+            .ax-icon {
+                @include center-y;
+                right: 25px;
+                fill: #fff;
+            }
+        }
+
+        &__currentPosition {
+            padding: 15px 30px 15px 80px;
+
+            .position-number {
+                color: $green-color;
+            }
+
+            .ax-icon {
+                right: auto;
+                left: 25px;
+                fill: $green-color;
+            }
+        }
+
+        &__arrow {
+            display: block;
+            width: 113px;
+            height: 103px;
+            background: url('../../assets/images/position-arrow.png') no-repeat center right;
+            margin: 0 10px;
+        }
+    }
+
+    @include mobile {
+        padding-bottom: 0;
+
+        .wrap {
+
+            &:after {
+                right: -150px;
+                top: 50px;
+            }
+        }
+
+        &__testimonial {
+            &__bio {
+                width: 100%;
+            }
+
+            &__content {
+                margin-top: 80px;
+                padding: 40px 30px;
+
+                &,
+                p {
+                    @include font-size(16px);
+                }
+            }
+
+
+            &__positions {
+                flex-direction: column;
+            }
+
+            &__startingPosition,
+            &__currentPosition {
+                margin: 10px 0;
+            }
+
+            &__arrow {
+                transform: rotate(90deg);
+                margin: 0;
+            }
+        }
+
+    }
+}

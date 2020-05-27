@@ -1,0 +1,230 @@
+.ax-colps {
+    width: 100%;
+    @include transition(all 300ms ease-in-out);
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 2px;
+    }
+
+    &:before {
+        content: "";
+        width: calc(100% + 25px);
+        height: calc(100% + 25px);
+        left: -12px;
+        top: 0;
+        position: absolute;
+        border: 2px solid $purple-color;
+        background: #fff;
+        z-index: -1;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+        @include transition(all 300ms ease-in-out);
+        opacity: 0;
+    }
+
+    // color
+    &--blue {
+        &:after {
+            background: $blue-color;
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $blue-color;
+            }
+
+            .ax-sort-icon {
+                fill: $blue-color;
+            }
+        }
+    }
+
+    &--yellow {
+        &:after {
+            background: $yellow-color;
+
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $yellow-color;
+            }
+
+            .ax-sort-icon {
+                fill: $yellow-color;
+            }
+        }
+    }
+
+    &--green {
+        &:after {
+            background: $green-color;
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $green-color;
+            }
+
+            .ax-sort-icon {
+                fill: $green-color;
+            }
+        }
+    }
+
+    &--purple {
+        &:after {
+            background: $purple-color-100;
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $purple-color-100;
+            }
+
+            .ax-sort-icon {
+                fill: $purple-color-100;
+            }
+        }
+    }
+
+    &--pink {
+        &:after {
+            background: $pink-color;
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $pink-color;
+            }
+
+            .ax-sort-icon {
+                fill: $pink-color;
+            }
+        }
+    }
+
+    &--lipink {
+        &:after {
+            background: $orange-color;
+        }
+
+        &.sortable-chosen {
+            &:before {
+                border-color: $orange-color;
+            }
+
+            .ax-sort-icon {
+                fill: $orange-color;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        border-top: solid 2px #eeeeee;
+        @include transition(all 200ms ease-in-out);
+        cursor: pointer;
+        position: relative;
+        padding: 20px 0;
+        margin-bottom: 20px;
+
+        h3 {
+            margin: 0;
+
+            span {
+                @include body-font(m);
+                @include font-size(18px);
+            }
+
+            @include mobile {
+                @include font-size(19px);
+                padding: 0 40px 0 0;
+
+                span {
+                    @include font-size(16px);
+                }
+            }
+        }
+
+        .ax-sort-icon {
+            width: 25px;
+            height: 15px;
+            margin-right: 20px;
+            fill: $gr-color-200;
+        }
+
+        .puls-icon,
+        .minus-icon {
+            display: flex;
+            justify-content: flex-end;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border: solid 1px $gr-color-200;
+            padding: 7px;
+            @include center-y;
+            right: 0;
+            @include transition(all 300ms ease-in-out);
+            fill: $pink-color;
+        }
+
+        .minus-icon {
+            visibility: hidden;
+        }
+
+        &.is-active {
+
+            .puls-icon {
+                visibility: hidden;
+            }
+
+            .minus-icon {
+                visibility: visible;
+
+                @include transition(all 300ms ease-in-out);
+            }
+        }
+
+
+    }
+
+    &.sortable-chosen {
+        position: relative;
+
+        .ax-colps--header {
+            border-top: 0;
+        }
+
+        &:after {
+            display: none;
+        }
+
+        &:before {
+            opacity: 1;
+        }
+    }
+
+    &__body {
+        @include transition(all 600ms -150ms ease-in-out);
+
+        &.show {
+            padding-bottom: 50px;
+        }
+    }
+
+    /* &:nth-last-of-type(1) {
+    .ax-colps__body {
+        &.show {
+            padding-bottom: 0;
+        }
+    }
+} */
+}

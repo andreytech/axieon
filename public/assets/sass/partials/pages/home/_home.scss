@@ -1,0 +1,62 @@
+.ax-home {
+    width: 100%;
+    background: #fff;
+    overflow-x: hidden;
+
+    .wrap {
+        position: relative;
+        overflow: visible;
+        max-width: 1170px;
+    }
+
+    h2 {
+        color: $purple-color-200;
+    }
+
+    h3 {
+        @include fontSize(22px);
+        color: $gr-color;
+        @include body-font(r);
+    }
+
+
+
+    .ax-tab {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 80px;
+
+        .tab-content {
+            z-index: 10;
+            position: relative;
+        }
+    }
+
+    @include tablet {
+        .wrap {
+            padding: 0 25px;
+        }
+    }
+
+    @include mobile {
+        h3 {
+            @include fontSize(16px);
+        }
+
+        .ax-tab {
+
+            nav,
+            .tab-content {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+@import "hero";
+@import "purpose";
+@import "experience";
+@import "resource";
+@import "validation";

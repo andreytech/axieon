@@ -1,0 +1,129 @@
+.ax-row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    // position
+    &--center {
+        justify-content: center;
+        width: 100%;
+    }
+
+    &--start {
+        justify-content: start;
+        margin-right: -20px !important;
+        width: calc(100% + 20px);
+    }
+
+    @include custom-bp(1120) {
+        &--start {
+            justify-content: center !important;
+        }
+
+    }
+
+    @include mobile {
+        &--center {
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+    }
+
+}
+
+.ax-col {
+    margin-right: 20px !important;
+    margin-bottom: 20px;
+
+    &--multicard {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .ax-card {
+            margin-bottom: 20px;
+
+            &:nth-last-of-type(1) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--lg {
+        width: calc(80% - 20px);
+    }
+
+    &--6 {
+        width: calc(16.666% - 20px);
+    }
+
+    &--5 {
+        width: calc(20% - 20px);
+    }
+
+    &--4 {
+        width: calc(25% - 20px);
+    }
+
+    &--3 {
+        width: calc(33.333% - 20px);
+    }
+
+    &--2 {
+        width: calc(30% - 20px);
+    }
+
+    &--mi {
+        width: calc(40% - 20px);
+    }
+
+    &--hl {
+        width: calc(50% - 20px);
+    }
+
+    &--listDisplay {
+        .ax-card {
+            &:nth-last-of-type(1) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @include custom-bp(1120) {
+        &--6 {
+            width: calc(25% - 20px);
+        }
+
+        &--5 {
+            width: calc(33.333% - 20px);
+        }
+
+        &--lg {
+            width: 100%;
+        }
+    }
+
+    @include custom-bp(950) {
+
+        &--4,
+        &--2 {
+            width: calc(50% - 20px);
+        }
+
+    }
+
+    @include mobile {
+
+        &--6,
+        &--5,
+        &--4,
+        &--3,
+        &--2,
+        &--mi,
+        &--hl {
+            width: 100%;
+        }
+
+    }
+}

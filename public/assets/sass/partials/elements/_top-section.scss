@@ -1,0 +1,148 @@
+.ax-top-nav {
+    width: 100%;
+    border-bottom: 1px solid rgba(216, 216, 216, 0.52);
+    background: #fff;
+    padding: 15px 25px;
+    margin-bottom: 1px;
+    @include transition(all 300ms ease-in-out);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    display: none;
+
+
+
+    @include custom-bp(1400) {
+        display: flex;
+        z-index: 1500;
+
+        .ax-dash-menu-trigger {
+            margin: 0;
+        }
+
+        .nav-logo {
+            opacity: 1;
+
+            svg {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        .ax-member-menu {
+            width: auto;
+            background: none;
+            position: relative;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+            overflow: visible;
+        }
+    }
+
+}
+
+.ax-top {
+    width: 100%;
+    display: block;
+
+    &__form {
+        background-color: $purple-color-200;
+        padding: 55px 30px 15px 30px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .wrap {
+        position: relative;
+
+    }
+
+    h3 {
+        color: #fff;
+        margin-bottom: 30px;
+        @include body-font(r);
+        @include font-size(30px);
+        font-weight: normal;
+    }
+
+    input {
+        background: #fff;
+        border-radius: 5px;
+        padding: 6px 20px 6px 50px;
+        border-bottom-width: 0;
+        border-left: 6px solid transparent;
+
+
+        &:focus {
+            border-color: $green-color !important;
+        }
+
+        &:disabled {
+            background: $purple-color-100 !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+
+            &::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            &::-moz-placeholder {
+                /* Firefox 19+ */
+                color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            &:-ms-input-placeholder {
+                /* IE 10+ */
+                color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            &:-moz-placeholder {
+                /* Firefox 18- */
+                color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            ~.ax-input-number {
+                background: none;
+                border-color: rgba(255, 255, 255, 0.5);
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+
+    .ax-input-number {
+        @include center-y;
+        left: 20px;
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+        background: $green-color;
+        color: #fff;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+
+    .ax-form-field {
+        &.ax-loading {
+            fieldset {
+                &:after {
+                    right: 10px;
+                }
+            }
+        }
+    }
+
+    .ax-select {
+        margin: 0;
+    }
+
+    @include custom-bp(1400) {
+        padding-top: 79px;
+    }
+
+    @include mobile {
+        height: auto;
+        max-height: auto !important;
+    }
+}

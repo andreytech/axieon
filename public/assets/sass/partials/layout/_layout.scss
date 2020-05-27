@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: #f8f8f8;
+}
+
+.page {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+
+.ax-main {
+    padding: 60px 0;
+    width: 100%;
+
+    @include mobile {
+        padding-bottom: 20px;
+    }
+}
+
+.wrap {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @include custom-bp(1300) {
+        width: 100% !important;
+    }
+
+    @include desktop {
+        width: 100% !important;
+    }
+}
+
+ul {
+    list-style: none;
+
+}

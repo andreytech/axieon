@@ -1,0 +1,236 @@
+.ax-resources {
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    z-index: 0;
+
+    &:before {
+        content: '';
+        background: $green-color;
+        position: absolute;
+        width: 100%;
+        height: 70%;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .wrap {
+        position: relative;
+        @include pattern-shape();
+
+        &:before,
+        &:after {
+            opacity: 0.4;
+        }
+
+        &:before {
+            left: -200px;
+            top: 350px;
+        }
+
+        &:after {
+            right: -150px;
+            top: 50px;
+        }
+
+        >h2,
+        >h3 {
+            color: #fff !important;
+        }
+    }
+
+    .ax-tab {
+        margin: 80px 0 0 0;
+
+        .nav {
+            width: 300px;
+
+
+
+            a {
+                width: 100%;
+                display: block;
+                padding: 35px 30px;
+                text-align: center;
+                align-items: center;
+                border: solid 1px #ebebeb;
+                border-radius: 5px;
+
+                margin-bottom: 30px;
+                position: relative;
+                background-color: #fff;
+                color: #686868;
+
+                * {
+                    @include transition(all 300ms ease-in-out);
+                }
+
+
+                >.ax-icon {
+                    width: 42px;
+                    margin-bottom: 15px;
+
+                    path {
+                        fill: $gr-color-400;
+
+                        &.fill-highlight {
+                            fill: $gr-color-300;
+                        }
+                    }
+                }
+
+
+                h3 {
+
+                    color: #686868;
+                    @include body-font(b);
+                }
+
+                span {
+                    @include fontSize(16px);
+                    display: block;
+                    color: #686868;
+                }
+
+                p {
+                    color: #8b8b8b;
+                }
+
+
+
+                .arrow-icon {
+                    display: inline-block;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 3px;
+                    box-shadow: 0 5px 10px 0 rgba(57, 35, 179, 0.2);
+                    background-color: #3923b3;
+                    padding: 13px;
+                    position: absolute;
+                    left: -50px;
+                    top: 30px;
+                    opacity: 0;
+
+                    .icon-stroke {
+                        stroke: #fff;
+                    }
+                }
+
+
+
+                &.active {
+                    box-shadow: 0 10px 22px 0 rgba(0, 0, 0, 0.3);
+                }
+
+                &.active {
+                    .arrow-icon {
+                        left: -28px;
+                        opacity: 1;
+                    }
+                }
+
+                &.active,
+                &:hover,
+                &:focus {
+                    background-color: #fff;
+                    color: $purple-color-200;
+
+                    path {
+                        fill: $purple-color-200;
+
+                        &.fill-highlight {
+                            fill: $green-color;
+                        }
+                    }
+
+                    h3 {
+                        color: $purple-color-200;
+                    }
+
+                    span {
+                        color: $purple-color-200;
+                    }
+
+                    p {
+                        color: $gr-color;
+                    }
+
+
+                }
+            }
+        }
+
+        .tab-content {
+            width: calc(100% - 340px);
+            margin-bottom: 30px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+        }
+
+        &--right {
+            .nav {
+                order: 2;
+            }
+        }
+    }
+
+    @include tablet {
+        .ax-tab {
+            .nav {
+                width: 180px;
+
+                a {
+
+                    span,
+                    p {
+                        display: none;
+                    }
+
+                    .arrow-icon {
+                        top: 50px;
+                    }
+                }
+            }
+
+            .tab-content {
+                width: calc(100% - 220px);
+            }
+        }
+    }
+
+    @include mobile {
+        padding: 50px 0;
+
+        .ax-tab {
+            flex-direction: column;
+            margin: 50px 0 0 0;
+
+            .nav {
+                order: -1;
+                display: flex;
+                justify-content: center;
+                flex-direction: row !important;
+                width: 100%;
+
+                a {
+                    width: 130px;
+                    margin: 15px 10px;
+                    padding: 20px 15px;
+
+                    .arrow-icon {
+                        display: none;
+                    }
+                }
+            }
+
+            .tab-content {
+                width: 100%;
+            }
+        }
+    }
+}

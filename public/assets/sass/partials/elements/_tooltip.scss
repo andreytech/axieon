@@ -1,0 +1,17 @@
+.tooltip-icon {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 19px;
+    height: 19px;
+    display: block;
+    cursor: pointer;
+
+    .ax-icon {
+        fill: $gr-color-200;
+
+        .fill-highlight {
+            fill: $green-color;
+        }
+    }
+}

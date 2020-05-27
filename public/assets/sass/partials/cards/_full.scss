@@ -1,0 +1,51 @@
+.ax-card--full {
+    flex-direction: row;
+
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+    min-height: auto;
+
+    .number-circle {
+        width: 180px;
+        height: 180px;
+        margin: 0;
+
+        &:after {
+            width: 177px;
+            height: 177px;
+            margin-top: 0;
+        }
+
+        span {
+            width: 180px;
+            height: 180px;
+            margin-top: -4px;
+        }
+
+    }
+
+    .card-info {
+        @include fontSize(20px);
+        font-weight: 600;
+        padding: 0 50px;
+
+        span {
+            font-weight: 500;
+        }
+    }
+
+    @include mini-tablet {
+        padding: 30px;
+    }
+
+    @include mobile {
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .card-info {
+            padding: 30px 0;
+            text-align: center;
+        }
+    }
+}

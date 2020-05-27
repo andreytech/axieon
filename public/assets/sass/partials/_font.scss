@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+
+@font-face {
+  font-family: "biennalebold";
+  src: url("../fonts/biennale_bold-webfont.eot");
+  src: url("../fonts/biennale_bold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/biennale_bold-webfont.woff2") format("woff2"),
+    url("../fonts/biennale_bold-webfont.woff") format("woff"),
+    url("../fonts/biennale_bold-webfont.ttf") format("truetype"),
+    url("../fonts/biennale_bold-webfont.svg#biennalebold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "biennalemedium";
+  src: url("../fonts/biennale_medium-webfont.eot");
+  src: url("../fonts/biennale_medium-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/biennale_medium-webfont.woff2") format("woff2"),
+    url("../fonts/biennale_medium-webfont.woff") format("woff"),
+    url("../fonts/biennale_medium-webfont.ttf") format("truetype"),
+    url("../fonts/biennale_medium-webfont.svg#biennalemedium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "biennaleregular";
+  src: url("../fonts/biennale_regular-webfont.eot");
+  src: url("../fonts/biennale_regular-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/biennale_regular-webfont.woff2") format("woff2"),
+    url("../fonts/biennale_regular-webfont.woff") format("woff"),
+    url("../fonts/biennale_regular-webfont.ttf") format("truetype"),
+    url("../fonts/biennale_regular-webfont.svg#biennaleregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "biennalesemibold";
+  src: url("../fonts/biennale_semibold-webfont.eot");
+  src: url("../fonts/biennale_semibold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/biennale_semibold-webfont.woff2") format("woff2"),
+    url("../fonts/biennale_semibold-webfont.woff") format("woff"),
+    url("../fonts/biennale_semibold-webfont.ttf") format("truetype"),
+    url("../fonts/biennale_semibold-webfont.svg#biennalesemibold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin body-font($type: r) {
+  font-family: "biennaleregular";
+  font-weight: normal;
+
+  @if $type==m {
+    font-family: "biennalemedium";
+    font-weight: normal;
+  }
+
+  @else if $type==sb {
+    font-family: "biennalesemibold";
+    font-weight: normal;
+  }
+
+  @else if $type==b {
+    font-family: "biennalesemibold";
+    font-weight: normal;
+  }
+}
+
+@mixin rubik {
+  font-family: "Rubik", sans-serif;
+}

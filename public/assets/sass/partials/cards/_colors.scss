@@ -1,0 +1,348 @@
+// colors
+&.on {
+    &.ax-card--total {
+        background: #fff;
+    }
+}
+
+&--yellow {
+
+    .number-circle,
+    .total-number {
+        color: $yellow-color;
+
+        &:after {
+            background: linear-gradient(to top, $yellow-color 58%, #f5f5f5 87%);
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $yellow-color;
+        }
+    }
+
+    .total-number {
+        color: $yellow-color;
+
+        &:after {
+            background: $yellow-color;
+        }
+    }
+
+    .match-anchors {
+        @include fontSize(14px);
+        color: $yellow-color;
+        margin-bottom: 10px;
+        @include body-font(m);
+    }
+
+    .total-word-count {
+        @include fontSize(14px);
+        color: $orange-color;
+        @include body-font(m);
+        margin-bottom: 10px;
+    }
+
+    &.on {
+        background: $yellow-color;
+        box-shadow: 0 8px 25px 0 rgba(255, 179, 45, 0.5);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+        }
+
+        span {
+            background: $yellow-color;
+        }
+
+        .total-number {
+            background: $yellow-color;
+        }
+    }
+}
+
+&--purple {
+
+    @include tooltip-color($purple-color-100);
+
+
+    .number-circle,
+    .total-number {
+        color: $purple-color-100;
+
+        &:after {
+            background: linear-gradient(to top, $purple-color-100 58%, #f5f5f5 87%);
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $purple-color;
+            box-shadow: 0 8px 10px 0 rgba($purple-color, 0.5);
+        }
+    }
+
+    .total-word-count {
+        @include fontSize(14px);
+        color: $orange-color;
+        @include body-font(m);
+        margin-bottom: 10px;
+    }
+
+    &.on {
+        background: $purple-color-100;
+        @include shadow($purple-color-100);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+
+            span {
+                background: $purple-color-100;
+
+            }
+
+        }
+
+        .total-number {
+            background: $purple-color-100;
+        }
+    }
+}
+
+&--blue {
+
+    @include tooltip-color($blue-color);
+
+    .number-circle,
+    .total-number {
+        color: $blue-color;
+
+        &:after {
+            background: linear-gradient(to top, $blue-color 58%, #f5f5f5 87%);
+
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $blue-color;
+            box-shadow: 0 8px 10px 0 rgba($blue-color, 0.5);
+        }
+    }
+
+    &.on {
+        background: $blue-color;
+        @include shadow($blue-color);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+
+            span {
+                background: $blue-color;
+            }
+
+        }
+
+        .total-number {
+            background: $blue-color;
+        }
+    }
+}
+
+&--green {
+
+    .number-circle,
+    .total-number {
+        color: $green-color;
+
+        &:after {
+            background: linear-gradient(to top, $green-color 58%, #f5f5f5 87%);
+
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $green-color;
+            box-shadow: 0 8px 10px 0 rgba($green-color, 0.5);
+        }
+    }
+
+    &.on {
+        background: $green-color;
+        @include shadow($green-color);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+
+            span {
+                background: $green-color;
+            }
+
+        }
+
+        .total-number {
+            background: $green-color;
+        }
+    }
+
+    .syndicated {
+        @include fontSize(14px);
+        color: #2adcbd;
+        margin-bottom: 10px;
+        @include body-font(m);
+    }
+
+    .total-word-count {
+        @include fontSize(14px);
+        color: $orange-color;
+        @include body-font(m);
+        margin-bottom: 10px;
+    }
+}
+
+&--pink {
+
+    .number-circle,
+    .total-number {
+        color: $pink-color;
+
+        &:after {
+            background: linear-gradient(to top, $pink-color 58%, #f5f5f5 87%);
+
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $pink-color;
+            box-shadow: 0 8px 10px 0 rgba($pink-color, 0.5);
+        }
+    }
+
+    &.on {
+        background: $pink-color;
+        @include shadow($pink-color);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+
+
+            span {
+                background: $pink-color;
+            }
+
+        }
+
+        .total-number {
+            background: $pink-color;
+        }
+    }
+}
+
+&--orange {
+
+    .number-circle,
+    .total-number {
+        color: $orange-color;
+
+        &:after {
+            background: linear-gradient(to top, $orange-color 58%, #f5f5f5 87%);
+
+        }
+
+        .up-arrow,
+        .down-arrow {
+            background: $orange-color;
+            box-shadow: 0 8px 10px 0 rgba($orange-color, 0.5);
+        }
+    }
+
+    &.on {
+        background: $orange-color;
+        @include shadow($orange-color);
+
+        .tooltip-icon {
+            circle {
+                stroke: #fff;
+            }
+
+            path {
+                fill: #fff;
+            }
+        }
+
+        .number-circle,
+        .total-number,
+        .card-info {
+            color: #fff;
+
+
+
+            span {
+                background: $orange-color;
+            }
+
+        }
+
+        .total-number {
+            background: $orange-color;
+        }
+    }
+}
