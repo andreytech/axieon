@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('/', 'ResultsController@show');
+Route::post('/results/get_keywords', 'ResultsController@getKeywords');

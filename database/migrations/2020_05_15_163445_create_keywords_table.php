@@ -21,6 +21,7 @@ class CreateKeywordsTable extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->boolean('is_commercial')->default(false);
+            $table->boolean('is_new')->default(false);
         });
     }
 

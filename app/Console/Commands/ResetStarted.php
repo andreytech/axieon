@@ -57,6 +57,8 @@ class ResetStarted extends Command
             $domains_crawled[] = $tld_to;
             $domain_backlinks_count = 0;
 
+            continue;
+
             if(!isset($domains_from_serp[$tld_to])) {
 //                $this->comment("Domain not found in SERP domains {$tld_to}");
                 continue;

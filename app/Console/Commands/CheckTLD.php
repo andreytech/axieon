@@ -182,6 +182,7 @@ class CheckTLD extends Command
             'info.abril.com.br' => 'abril.com.br',
             'dev.example.ca' => 'example.ca',
             'dev.example.io' => 'example.io',
+            'www.gov.uk' => 'gov.uk',
 //            '127.0.0.1' => '127.0.0.1',
 //            '::1' => '::1',
         );

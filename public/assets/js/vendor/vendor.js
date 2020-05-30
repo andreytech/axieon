@@ -48,8 +48,9 @@ $(function () {
         }
     });
 
-    $('.ax-search-dropdown table').basictable({
+    $('#keyword_results').basictable({
         breakpoint: 1000,
+        header: false,
     });
 
 

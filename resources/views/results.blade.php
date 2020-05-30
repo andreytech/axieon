@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css?version=1589150987">
     <style type="text/css" href="./assets/css/apexcharts.css?version=1"></style>
 </head>
@@ -138,83 +139,33 @@
                         </div>
                     </div>
                     <div class="os-scrollbar-corner"></div>
-                    <table>
+                    <table id="keyword_results">
                         <thead>
                         <tr>
-                            <th>Keywords Name</th>
+                            <th>Keyword</th>
                             <th class="th-info">Total Keywords Ranking</th>
                         </tr>
                         </thead>
                         <tbody class="os-host os-theme-dark os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-scrollbar-vertical-hidden os-host-transition">
                         <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
+                            <td class="td-result" {{--data-th="Keyword"--}}>
+                                <span class="bt-content"><a href="#" class="keyword_text">alal</a></span>
                             </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="td-result" data-th="Keywords Name"><span class="bt-content"><a href="#">Progressive</a></span>
-                            </td>
-                            <td class="td-info" data-th="Total Keywords Ranking"><span class="bt-content">1,448</span>
-                            </td>
+                            {{--                            <td class="td-info" data-th="Total Keywords Ranking">--}}
+                            {{--                                <span class="bt-content">1,448</span>--}}
+                            {{--                            </td>--}}
                         </tr>
                         </tbody>
+                    </table>
+                    <table id="keyword_results_row_template" style="display: none;">
+                        <tr>
+                            <td class="td-result"{{-- data-th="Keyword"--}}>
+                                <span class="bt-content"><a href="#" class="keyword_text">sdfsd</a></span>
+                            </td>
+{{--                            <td class="td-info" data-th="Total Keywords Ranking">--}}
+{{--                                <span class="bt-content">1,448</span>--}}
+{{--                            </td>--}}
+                        </tr>
                     </table>
                 </div>
             </form>
