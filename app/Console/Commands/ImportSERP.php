@@ -40,17 +40,13 @@ class ImportSERP extends Command
 
     public function handle() {
         $paths = [
-            'storage/SERP1.csv',
-            'storage/SERP2.csv',
-            'storage/SERP3.csv',
-            'storage/SERP4.csv',
+            'storage/SERPs.csv',
         ];
 
         foreach ($paths as $path) {
             $this->handleSERPFile($path);
         }
     }
-
 
     private function handleSERPFile($filepath) {
         $file_handle = fopen($filepath, 'r');

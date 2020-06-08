@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Serp;
 use Illuminate\Console\Command;
 use App\Keyword;
 
@@ -41,13 +40,19 @@ class PrepareKeywords extends Command
     {
         $keywords = Keyword::query()->select('keyword')
             ->orderBy('id')
-            ->doesntHave('serps')
-            ->limit(1000)
+            ->where('is_new', 1)
+//            ->doesntHave('serps')
             ->get();
 
-        $file = 'prepared_keywords.txt';
-        file_put_contents($file, "");
-        foreach($keywords as $keyword) {
+        $batch_num = 0;
+        $file = '';
+        foreach($keywords as $i => $keyword) {
+            if($i >= $batch_num*1000) {
+                $batch_num++;
+                $file = "prepared_keywords{$batch_num}.txt";
+                file_put_contents($file, "");
+            }
+
             file_put_contents($file, $keyword->keyword."\n", FILE_APPEND);
 //            var_dump($keyword->keyword);
 //            exit;

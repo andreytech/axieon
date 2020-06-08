@@ -13,9 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('results');
-});
-
-Route::post('/', 'ResultsController@show');
+Route::get('/', 'ResultsController@show');
 Route::post('/results/get_keywords', 'ResultsController@getKeywords');

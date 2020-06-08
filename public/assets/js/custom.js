@@ -199,6 +199,7 @@ $(function () {
                 $( data.keywords ).each(function( index, item ) {
                     // console.dir(item.keyword);
                     $('#keyword_results_row_template a').text(item.keyword);
+                    $('#keyword_results_row_template a').attr('data-keyword-id', item.id);
                     var template = $('#keyword_results_row_template tr')
                         .clone()
                         .appendTo($('#keyword_results tbody .os-content'))
@@ -224,6 +225,8 @@ $(function () {
 
                 $(document).find('table td a').on('click', function () {
                     $(searchField).val($(this).text());
+                    var keyword_id = $(this).attr('data-keyword-id');
+                    $('#keyword_id').val(keyword_id);
                     $(searchField).parents('.ax-form-field').next('.ax-form-field').find('input').removeAttr('disabled').focus();
                     $(document).find('.ax-search-dropdown').attr('ax-data-select', selectedInput).removeClass('ax-reveal');
                     isSpinnerVisible = false;

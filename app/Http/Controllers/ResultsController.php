@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 
 class ResultsController extends Controller
 {
-    public function show() {
-        return view('results', ['user' => User::findOrFail($id)]);
+    public function show(Request $request) {
+        $keyword_id = $request->input('keyword_id');
+        if($keyword_id) {
+            dd($keyword_id);
+            return view('results', ['user' => User::findOrFail($id)]);
+        }else {
+            return view('search');
+        }
+//        return view('results', ['user' => User::findOrFail($id)]);
     }
 
     public function getKeywords(Request $request) {
