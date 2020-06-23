@@ -85,13 +85,13 @@
     border-bottom: solid 3px #3923b3;
     border-radius: 3px;
 ">
-                            <input type="text" name="ax-keyword" ax-data-dropdown="industry" class="ax-dynamic-field"
+                            <input type="text" name="keyword" ax-data-dropdown="industry" class="ax-dynamic-field"
+                                   value="{{$keyword}}"
                                    id="ax-keyword" placeholder="Enter Keyword" style="
     /*color: white !IMPORTANT;*/
     /* border-bottom: 3px solid #e0e0e0; */
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.1);
 ">
-                            {{--                            <span class="ax-input-number">Keyword</span>--}}
                         </fieldset>
                     </div>
                     <div class="ax-search ax-search--disabled" style="
@@ -99,8 +99,8 @@
     margin-left: 10px;
 ">
                         <div class="ax-search__input">
-                            <input type="text" placeholder="Page URL (Optional)" name="ax-url" id="ax-url" >
-                            {{--                            <span class="ax-input-number">Page URL <span style="font-weight: 400">(Optional)</span></span>--}}
+                            <input type="text" placeholder="Page URL (Optional)" name="your_url" id="ax-url"
+                                   value="{{$your_url}}">
                         </div>
 
                         <div class="ax-search__btn-wrap">

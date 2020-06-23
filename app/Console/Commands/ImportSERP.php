@@ -64,6 +64,7 @@ class ImportSERP extends Command
         $serp_id = 0;
         $position = 1;
         $keyword = '';
+        $keywords_count = 0;
 
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules(); //$rules is a Pdp\Rules object
@@ -74,6 +75,7 @@ class ImportSERP extends Command
             }
 
             if($keyword != trim($line_of_text[0])) {
+                $keywords_count++;
                 $position = 1;
             }
             $keyword = trim($line_of_text[0]);
@@ -118,5 +120,6 @@ class ImportSERP extends Command
         }
         fclose($file_handle);
 
+        $this->comment('Processed keywords:'.$keywords_count);
     }
 }
