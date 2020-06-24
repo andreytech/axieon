@@ -86,7 +86,7 @@
     border-radius: 3px;
 ">
                             <input type="text" name="keyword" ax-data-dropdown="industry" class="ax-dynamic-field"
-                                   value="{{$keyword}}"
+                                   value="{{$keyword}}" autocomplete="off"
                                    id="ax-keyword" placeholder="Enter Keyword" style="
     /*color: white !IMPORTANT;*/
     /* border-bottom: 3px solid #e0e0e0; */
@@ -169,7 +169,7 @@
                         </tr>
                     </table>
                 </div>
-                <input type="hidden" name="keyword_id" id="keyword_id" value="">
+                <input type="hidden" name="keyword_id" id="keyword_id" value="{{$keyword_id}}">
             </form>
         </div>
     </div>

@@ -35,10 +35,12 @@ class ImportBacklinkUniverse extends Command
     }
 
     public function handle() {
+        $this->comment("backlinkuniverse:import started");
+
         $BLUs = [
-            'is_major' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Major Publication (MP).csv',
-            'is_minor' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Influencer Publication (IP).csv',
-            'is_local' => 'storage/Backlink (Publisher) Universe (BU) [ALPHA] - A1_ Local Publication (LP).csv',
+            'is_major' => 'storage/major_BU.csv',
+            'is_minor' => 'storage/influencer_BU.csv',
+            'is_local' => 'storage/local_BU.csv',
         ];
 
         foreach ($BLUs as $universe => $path) {
@@ -54,7 +56,7 @@ class ImportBacklinkUniverse extends Command
             return;
         }
 
-        fgetcsv($file_handle);
+//        fgetcsv($file_handle);
 
 //        $line_of_text = fgetcsv($file_handle);
 //        var_dump($line_of_text);
@@ -70,8 +72,8 @@ class ImportBacklinkUniverse extends Command
             }
 
             $domain = trim($line_of_text[1]);
-            if(strpos($line_of_text[1], 'http') !== 0) {
-                $domain = 'http://'.trim($line_of_text[1]);
+            if(strpos($domain, 'http') !== 0) {
+                $domain = 'http://'.trim($domain);
             }
 
             $domain = parse_url($domain, PHP_URL_HOST);

@@ -157,7 +157,8 @@ class ImportHistoricalBL extends Command
                         ['is_from_serp' => 0]
                     );
                 }catch (QueryException $e) {
-                    if($e->getCode() === '22007') {
+                    var_dump($e->getCode());
+                    if( in_array($e->getCode(), ['HY000', '22007']) ) {
                         $this->comment("Encoding error {$tld_to}, {$data[0]}");
                         $is_encoding_error = true;
                     }else {

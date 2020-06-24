@@ -44,9 +44,6 @@ class ImportKeywords2 extends Command
             return;
         }
 
-        // Read headings
-        fgetcsv($file_handle);
-
 //        $line_of_text = fgetcsv($file_handle);
 //        var_dump($line_of_text);
 //        exit;
