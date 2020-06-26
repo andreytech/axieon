@@ -120,7 +120,7 @@ class ResultsController extends Controller
         $keyword_id = $request->input('keyword_id');
         $keyword = $request->input('keyword');
         $your_url = $request->input('your_url');
-        $search_params = $request->input('search_params');
+        $search_params = $request->input('search_params', []);
 
         $serp_results_count = 15;
 //        dd($search_params);

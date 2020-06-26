@@ -147,36 +147,11 @@ class ImportHistoricalBL extends Command
                     continue;
                 }
 
-                try {
-                    $is_encoding_error = false;
-                    $pageFromModel = Page::query()->firstOrCreate([
-                        'domain_id' => $domain_from_id,
-                        'subdomain' => (string)$subdomain_from,
-                        'path' => $path_from,
-                    ],
-                        ['is_from_serp' => 0]
-                    );
-                }catch (QueryException $e) {
-                    var_dump($e->getCode());
-                    if( in_array($e->getCode(), ['HY000', '22007']) ) {
-                        $this->comment("Encoding error {$tld_to}, {$data[0]}");
-                        $is_encoding_error = true;
-                    }else {
-                        throw $e;
-                    }
-                }
-
-                if($is_encoding_error) {
-                    $path_from = mb_convert_encoding($path_from, 'UTF-8');
-                    $subdomain_from = mb_convert_encoding($subdomain_from, 'UTF-8');
-                    $pageFromModel = Page::query()->firstOrCreate([
-                        'domain_id' => $domain_from_id,
-                        'subdomain' => (string)$subdomain_from,
-                        'path' => $path_from,
-                    ],
-                        ['is_from_serp' => 0]
-                    );
-                }
+                $pageFromModel = $this->_addPage([
+                    'domain_id' => $domain_from_id,
+                    'subdomain' => (string)$subdomain_from,
+                    'path' => $path_from,
+                ]);
 
 //                $first_seen = Carbon::parse($data[15]);
 //                dd($data[15], $first_seen->toDateTimeString());
@@ -219,5 +194,36 @@ class ImportHistoricalBL extends Command
             }
         }
 
+    }
+
+    private function _addPage($data) {
+        try {
+            $is_encoding_error = false;
+            $pageModel = Page::query()->firstOrCreate($data,
+                ['is_from_serp' => 0]
+            );
+        }catch (QueryException $e) {
+            var_dump($e->getCode());
+            if( in_array($e->getCode(), ['HY000', '22007']) ) {
+                $this->comment("Encoding error {$data['path']}");
+                $is_encoding_error = true;
+            }else {
+                throw $e;
+            }
+        }
+
+        if($is_encoding_error) {
+            $path = mb_convert_encoding($data['path'], 'UTF-8');
+            $subdomain = mb_convert_encoding($data['subdomain'], 'UTF-8');
+            $pageModel = Page::query()->firstOrCreate([
+                'domain_id' => $data['domain_id'],
+                'subdomain' => (string)$subdomain,
+                'path' => $path,
+            ],
+                ['is_from_serp' => 0]
+            );
+        }
+
+        return $pageModel;
     }
 }
