@@ -183,7 +183,7 @@ $(function () {
         });
 
         $.post(
-            '/results/get_keywords',
+            app_url + '/results/get_keywords',
             {keyword: $(searchField).val()},
             function (data) {
                 $(searchField).parents('.ax-form-field').removeClass('ax-loading');

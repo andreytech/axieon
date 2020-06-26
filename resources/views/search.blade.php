@@ -230,6 +230,9 @@
         </div>
     </div>
 </footer>
+<script>
+    var app_url = '{{ env('APP_URL') }}';
+</script>
 <script src="./assets/js/vendor.min.js?version=1589150987"></script>
 {{--<script src="./assets/js/vendor/vendor.js?version=1589150987"></script>--}}
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
