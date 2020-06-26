@@ -73,25 +73,29 @@
                     {{$result->url}}
                 </span>
             </td>
-            <td class="days" data-th="Position Days"><span class="bt-content">87</span></td>
-            <td class="days" data-th="+22"><span class="bt-content" style="">25</span></td>
-        </tr>
-        @endforeach
-        <tr>
-            <td class="number" data-th="15"><span class="bt-content">2</span></td>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a
-                            href="#">www.geico.com/car-insurance/</a></span>
-            </td>
-            <td class="days" data-th="Position Days"><span class="bt-content" style="
+            <td class="days" data-th="Position Days">
+                <span class="bt-content"
+                      @if($result->max_anchor_text_usage)
+                      style="
     background-color: #dc2ad2;
     padding: 6px 7px 6px 7px;
     /* border: 1px solid #c0e6c0; */
     border-radius: 5px;
     color: white;
     border-radius: 100%;
-">87</span></td>
-            <td class="days" data-th="+19"><span class="bt-content">15</span></td>
+"
+                      @endif
+                >
+                    {{$result->anchor_text_usage}}
+                </span>
+            </td>
+            <td class="days" data-th="+22">
+                <span class="bt-content" style="">
+                    {{$result->anchor_text_deviation}}
+                </span>
+            </td>
         </tr>
+        @endforeach
         </tbody>
     </table>
 </div>

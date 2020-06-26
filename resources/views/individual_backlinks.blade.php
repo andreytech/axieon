@@ -77,19 +77,20 @@
 "><span class="bt-content"><a href="#">{{$backlink->brand_name}}</a></span></td>
                 <td class="page-url" data-th="Page URL" style="
     padding-right: 5px;
+    overflow: hidden;
 "><span class="bt-content"><a href="#">{{$backlink->url}}</a></span></td>
                 <td class="page-url" data-th="Page URL" style="
     padding-left: 5px;
     padding-right: 5px;
 "><span class="bt-content">
-">{{ \Carbon\Carbon::parse($serp->first_seen)->format('m-d-Y') }}</span></td>
+{{ \Carbon\Carbon::parse($backlink->first_seen)->format('m-d-Y') }}</span></td>
 
-                <td class="page-url" data-th="Page URL">
+                <td class="page-url" data-th="Page URL" style="overflow: hidden;">
                     <span class="bt-content">
                         {{$backlink->referring_page_title}}
                     </span>
                 </td>
-                <td class="page-url" data-th="Page URL">
+                <td class="page-url" data-th="Page URL" style="overflow: hidden;">
                     <span class="bt-content">
                         {{$backlink->link_anchor}}
                     </span>

@@ -68,7 +68,7 @@
     -webkit-box-shadow: 0 6px 40px 0 rgba(0,0,0,0.1);
     box-shadow: 0 6px 40px 0 rgba(0, 0, 0, 0.19);
 ">
-            <form class="ax-top__form" action="" style="
+            <form class="ax-top__form" action="" id="search_form" style="
     background: rgb(255, 255, 255);
     /* background: linear-gradient(180deg, rgb(81, 60, 193) 0%, rgb(57, 35, 179) 100%); */
     margin-top: 10px;
@@ -169,7 +169,12 @@
                         </tr>
                     </table>
                 </div>
-                <input type="hidden" name="keyword_id" id="keyword_id" value="{{$keyword_id}}">
+                <input type="hidden" name="keyword_id" id="keyword_id" value="{{$keyword_id}}" />
+                @if(count($search_params))
+                    @foreach($search_params as $param => $value)
+                        <input type="hidden" name="search_params[{{$param}}]" value="{{$value}}" />
+                    @endforeach
+                @endif
             </form>
         </div>
     </div>

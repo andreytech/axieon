@@ -21,6 +21,7 @@ class CreateDomainsTable extends Migration
             $table->boolean('is_major')->default(false);
             $table->boolean('is_minor')->default(false);
             $table->boolean('is_local')->default(false);
+            $table->boolean('is_business')->default(false);
             $table->boolean('is_potential_customer')->default(false);
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

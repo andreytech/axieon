@@ -26,6 +26,7 @@ class CreateBacklinksTable extends Migration
             $table->foreign('page_from')->references('id')->on('pages');
             $table->foreign('page_to')->references('id')->on('pages');
         });
+        DB::statement('ALTER TABLE backlinks ADD FULLTEXT idx_anchor_text(link_anchor)');
     }
 
     /**

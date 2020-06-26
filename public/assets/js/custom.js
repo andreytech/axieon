@@ -246,6 +246,25 @@ $(function () {
             placeholder: 'Date Range'
         });
     });
+
+    $('input[type=radio][name=individual_backlinks_page]').change(function() {
+        $('.backlinks_list').hide();
+        $('.' + this.value + '_backlinks').show();
+    });
+    $('input[type=radio][value=first_page]').click();
+    $('input[type=radio][value=your_page]').click();
+
+    $('select').on('change', function() {
+        const name = $(this).attr('name');
+        $('#search_form input[name=\'search_params[' + name + ']\']').remove();
+        // console.log(name);
+        $('<input>').attr({
+            type: 'hidden',
+            name: 'search_params[' + name + ']',
+            value: $(this).val()
+        }).appendTo('#search_form');
+        $('#search_form').submit();
+    });
 });
 "use strict";
 

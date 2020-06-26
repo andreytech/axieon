@@ -10,7 +10,7 @@
 
                     <div class="collapse ax-colps__body show" id="backlink-insights">
 
-                        @include('filters', []);
+                        @include('filters', [])
 
 
                         <h3 style="
@@ -41,7 +41,7 @@
 
 {{--                        @include('chart', array('backlinks' => []));--}}
 
-                        @include('backlink_comparison', ['backlinks' => []]);
+                        @include('backlink_comparison', ['backlinks' => []])
 
                         <h3 style="
     margin-top: 50px;
@@ -71,28 +71,34 @@
                         <div class="ax-form-wrapper ax-form-wrapper--alignStart">
                             @if($your_page_id)
                                 <div class="ax-radio ax-radio--purple">
-                                    <input id="all-page-sources" name="purple-radio" type="radio" checked="">
+                                    <input id="all-page-sources" name="individual_backlinks_page"
+                                           value="your_page" type="radio" checked="">
                                     <label for="all-page-sources">Your Page URL</label>
                                 </div>
                             @endif
                             <div class="ax-radio ax-radio--purple">
-                                <input id="relevant-page-sources" name="purple-radio" type="radio">
+                                <input id="relevant-page-sources" name="individual_backlinks_page"
+                                       value="first_page" type="radio">
                                 <label for="relevant-page-sources">Competitor Position #1 URL</label>
                             </div>
                         </div>
 
-                        @if($your_page_id)
-                            @if(count($your_page_backlinks))
-                                @include('individual_backlinks', ['backlinks' => $your_page_backlinks]);
-                            @else
-                                <p>No high quality backlinks were found for your page.</p>
+                        <div class="your_page_backlinks backlinks_list">
+                            @if($your_page_id)
+                                @if(count($your_page_backlinks))
+                                    @include('individual_backlinks', ['backlinks' => $your_page_backlinks])
+                                @else
+                                    <p>No high quality backlinks were found for your page.</p>
+                                @endif
                             @endif
-                        @endif
-                        @if(count($first_position_backlinks))
-                            @include('individual_backlinks', ['backlinks' => $first_position_backlinks]);
-                        @else
-                            <p>No high quality backlinks were found for Position #1 URL Competitor.</p>
-                        @endif
+                        </div>
+                        <div class="first_page_backlinks backlinks_list">
+                            @if(count($first_position_backlinks))
+                                @include('individual_backlinks', ['backlinks' => $first_position_backlinks])
+                            @else
+                                <p>No high quality backlinks were found for Position #1 URL Competitor.</p>
+                            @endif
+                        </div>
 
                         <div style="margin-bottom: 75px;"></div>
                         {{--<div class="ax-caution ax-caution--warning" style="
@@ -117,8 +123,8 @@
                             </div>
                         </div>--}}
 
-                        @include('anchor_text_usage', ['backlinks' => []]);
-                        @include('discover_publishers', ['backlinks' => []]);
+                        @include('anchor_text_usage', ['backlinks' => []])
+                        @include('discover_publishers', ['backlinks' => []])
 
 
                     </div>

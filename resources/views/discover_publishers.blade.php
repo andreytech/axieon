@@ -23,6 +23,8 @@
     border-radius: 7px;
     letter-spacing: .9px;
 ">5. Discover Publishers (Industry)</h3>
+
+@if(count($publishers))
 <div class="ax-table-wrapper">
     <table class="ax-table ax-table--5col">
         <thead class="ax-bg--blue">
@@ -42,8 +44,6 @@
 
             <th class="page-url" style="
     background-color: #ffffff;
-    /* border-bottom: solid 3px #372b77; */
-    color: black;
     font-weight: bold;
     width: 22%;
 ">Latest Post
@@ -51,11 +51,13 @@
 
 
             <th class="days total-backlinks ax-bg--purple" style="
-    /* font-weight: bold; */
-    color: #000000;
     width: 13%;
     text-align: left;
     ">Last Backlink Date
+            </th>
+            <th class="days total-backlinks ax-bg--purple" style="
+    width: 10%;
+    ">Total Backlinks Given For Keyword
             </th>
             <th class="days total-backlinks ax-bg--purple" style="
     /* font-weight: bold; */
@@ -69,67 +71,39 @@
         </thead>
 
         <tbody>
-        <tr>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">CNN</a></span>
-            </td>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">How to reduce your car insurance in 3 steps</a></span>
-            </td>
-            <td class="days" data-th="Position Days" style="
-    text-align: left;
-"><span class="bt-content" style="
-    text-align: left;
-    padding-left: 5px;
-">5-15-20</span></td>
-            <td class="days" data-th="Position Days"><span class="bt-content">87</span></td>
-        </tr>
-
-        <tr>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">Huffington Post</a></span>
-            </td>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">Change your insurance before it ends</a></span>
-            </td>
-            <td class="days" data-th="Position Days" style="
-    text-align: left;
-"><span class="bt-content" style="
-    text-align: left;
-    padding-left: 5px;
-">4-23-20</span></td>
-            <td class="days" data-th="Position Days"><span class="bt-content">3</span></td>
-        </tr>
-
-
-        <tr>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a
-                            href="#">Forbes</a></span></td>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">The easiest way to decrease your insurance costs in 2020</a></span>
-            </td>
-            <td class="days" data-th="Position Days" style="
-    text-align: left;
-"><span class="bt-content" style="
-    text-align: left;
-    padding-left: 5px;
-">2-12-20</span></td>
-            <td class="days" data-th="Position Days"><span class="bt-content">14</span></td>
-        </tr>
-
-
-        <tr>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a
-                            href="#">NBC 5</a></span></td>
-            <td class="page-url" data-th="Page URL"><span class="bt-content"><a href="#">How your insurance rates can go up in Phoenix</a></span>
-            </td>
-            <td class="days" data-th="Position Days" style="
-    text-align: left;
-"><span class="bt-content" style="
-    text-align: left;
-    padding-left: 5px;
-">1-21-20</span></td>
-            <td class="days" data-th="Position Days"><span class="bt-content">32</span></td>
-        </tr>
-
-
+        @foreach ($publishers as $publisher)
+            <tr>
+                <td class="page-url" data-th="Page URL">
+                    <span class="bt-content">
+                        {{$publisher->brand_name}}
+                    </span>
+                </td>
+                <td class="page-url" data-th="Page URL">
+                    <span class="bt-content">
+                        {{$publisher->referring_page_title}}
+                    </span>
+                </td>
+                <td class="days" data-th="Position Days" style="
+        text-align: left;
+    "><span class="bt-content" style="
+        text-align: left;
+        padding-left: 5px;
+    ">{{ \Carbon\Carbon::parse($publisher->first_seen)->format('m-d-Y') }}</span></td>
+                <td class="days" data-th="Position Days">
+                    <span class="bt-content">
+                        {{$publisher->backlinks_count}}
+                    </span>
+                </td>
+                <td class="days" data-th="Position Days">
+                    <span class="bt-content">
+                        {{$publisher->total_backlinks_count}}
+                    </span>
+                </td>
+            </tr>
+        @endforeach
         </tbody>
-
-
     </table>
 </div>
+    @else
+    <p style="clear: both;">No high-quality publishers were found for this keyword.</p>
+    @endif
