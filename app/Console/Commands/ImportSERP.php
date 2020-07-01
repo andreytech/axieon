@@ -19,7 +19,7 @@ class ImportSERP extends Command
      *
      * @var string
      */
-    protected $signature = 'serp:import';
+    protected $signature = 'serps:import';
 
     /**
      * The console command description.
@@ -69,18 +69,21 @@ class ImportSERP extends Command
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules(); //$rules is a Pdp\Rules object
 
-        while (($line_of_text = fgetcsv($file_handle, 1000)) !== FALSE) {
-            if(!in_array($line_of_text[22], ['Organic'])) {
-                continue;
-            }
+        while (($line_of_text = fgetcsv($file_handle)) !== FALSE) {
+//            if(!in_array($line_of_text[22], ['Organic'])) {
+//                continue;
+//            }
+//            var_dump($line_of_text);exit;
+            $current_keyword = trim($line_of_text[1]);
+            $url = trim($line_of_text[2]);
 
-            if($keyword != trim($line_of_text[0])) {
+            if($keyword != $current_keyword) {
                 $keywords_count++;
                 $position = 1;
             }
-            $keyword = trim($line_of_text[0]);
-            $domain = parse_url($line_of_text[1], PHP_URL_HOST);
-            $path = parse_url($line_of_text[1], PHP_URL_PATH);
+            $keyword = $current_keyword;
+            $domain = parse_url($url, PHP_URL_HOST);
+            $path = parse_url($url, PHP_URL_PATH);
 
             $domain_obj = $rules->resolve($domain); //$domain is a Pdp\Domain object
             $tld = $domain_obj->getRegistrableDomain();

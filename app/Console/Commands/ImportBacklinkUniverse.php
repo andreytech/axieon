@@ -41,6 +41,7 @@ class ImportBacklinkUniverse extends Command
             'is_major' => 'storage/major_BU.csv',
             'is_minor' => 'storage/influencer_BU.csv',
             'is_local' => 'storage/local_BU.csv',
+            'is_business' => 'storage/business_BU.csv',
         ];
 
         foreach ($BLUs as $universe => $path) {
@@ -56,7 +57,8 @@ class ImportBacklinkUniverse extends Command
             return;
         }
 
-//        fgetcsv($file_handle);
+        // Read heading
+        fgetcsv($file_handle);
 
 //        $line_of_text = fgetcsv($file_handle);
 //        var_dump($line_of_text);
@@ -67,11 +69,14 @@ class ImportBacklinkUniverse extends Command
 
         while (!feof($file_handle)) {
             $line_of_text = fgetcsv($file_handle);
-            if(empty(trim($line_of_text[1]))) {
+            $brand_name = trim($line_of_text[0]);
+            $domain_orig = trim($line_of_text[0]);
+
+            if(empty(trim($domain_orig))) {
                 continue;
             }
 
-            $domain = trim($line_of_text[1]);
+            $domain = $domain_orig;
             if(strpos($domain, 'http') !== 0) {
                 $domain = 'http://'.trim($domain);
             }
@@ -81,11 +86,9 @@ class ImportBacklinkUniverse extends Command
             $tld = $domain_obj->getRegistrableDomain();
 
             if(empty($tld)) {
-                $this->comment("tld empty for ".$domain." ". $line_of_text[1]);
+                $this->comment("tld empty for ".$domain." ". $domain_orig);
                 continue;
             }
-
-            $brand_name = trim($line_of_text[0]);
 
 //            $subdomain = $domain_obj->getSubDomain();
 

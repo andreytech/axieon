@@ -1,151 +1,604 @@
-CNN,cnn.com/
-MSN,msn.com/
-Huffington Post,huffingtonpost.com/
-Yahoo! News,yahoo.com/
-USA Today,usatoday.com/
-CNBC,cnbc.com/
-NY Post,nypost.com/
-NBC News,nbc.com/
-MSNBC,msnbc.com/
-ABC News,abcnews.com/
-BBC,bbc.com/
-BuzzFeed,buzzfeed.com/
-CBS News,cbs.com/
-NPR,npr.org/
-NY Daily News,nydailynews.com/
-Bloomberg,bloomberg.com/
-The Guardian,theguardian.com/
-Reuters,reuters.com/
-Marketplace,marketplace.org/
-WSJ,wsj.com/
-Boston,boston.com/
-LA Times,latimes.com/
-CNN Money,money.cnn.com/
-Chicago Tribune,chicagotribune.com/
-Entrepreneur,entrepreneur.com/
-Seattle Times,seattletimes.com/
-AARP,aarp.org/
-Nasdaq,nasdaq.com/
-US News,usnews.com/
-Vice,vice.com/
-Boston Globe,bostonglobe.com/
-The New York Times,nytimes.com/
-CNET,cnet.com/
-Today,today.com/
-Business Insider,businessinsider.com/
-Forbes,forbes.com/
-The Washington Post,washingtonpost.com/
-The Verge,theverge.com/
-Seeking Alpha,seekingalpha.com/
-Fox Business,foxbusiness.com/
-Car and Driver,caranddriver.com/
-Philly,philly.com/
-Associated Press,apnews.com/
-Time Magazine,time.com/
-Engadget,engadget.com/
-Investopedia,investopedia.com/
-TechCrunch,techcrunch.com/
-Chron,chron.com/
-Wired,wired.com/
-Financial Times,ft.com/
-Barron’s,barrons.com/
-Mercury News,mercurynews.com/
-Motor Trend,motortrend.com/
-Flipboard,flipboard.com/
-San Francisco Chronicle,sfchronicle.com/
-Parents,parents.com/
-Parade,parade.com
-Fool,fool.com/
-The Nest,thenest.com/
-Boing Boing,boingboing.net/
-Kiplinger,kiplinger.com/
-Elliott,elliott.org/
-Android Central,androidcentral.com/
-Askmen,askmen.com/
-NBR,nbr.com/
-Business Wire,businesswire.com/
-Business Week,businessweek.com/
-Benzinga,benzinga.com/
-Digital Journal,digitaljournal.com/
-The Cheat Sheet,cheatsheet.com/
-Super Chevy,superchevy.com/
-Black Enterprise Magazine,blackenterprise.com/
-Financial Advisor Magazine,fa-mag.com/
-Auto Week,autoweek.com/
-Metro US,metro.us/
-Blasting News,blastingnews.com/
-Realty Times,realtytimes.com/
-This is Insider,thisisinsider.com/
-Insurance News Net,insurancenewsnet.com/
-Quick and Dirty Tips,quickanddirtytips.com/
-The Fiscal Times,thefiscaltimes.com/
-Global Banking & Finance,globalbankingandfinance.com/
-Biz Community,bizcommunity.com/
-Bit Rebels,bitrebels.com/
-IT Business Net,itbusinessnet.com/
-SFGate,sfgate.com/
-New Yorker,newyorker.com/
-Market Watch,marketwatch.com/
-Biz Journals,bizjournals.com/
-Arstechnica,arstechnica.com/
-Life Hacker,lifehacker.com/
-CS Monitor,csmonitor.com/
-IB Times,ibtimes.com/
-Pop Sugar,popsugar.com/
-News Day,newsday.com/
-The Street,thestreet.com/
-Curbed,curbed.com/
-Good House Keeping,goodhousekeeping.com/
-Consumerist,consumerist.com/
-Before Its News,beforeitsnews.com/
-Auto Mobile Magazine,automobilemag.com/
-Super Street Online,superstreetonline.com/
-Clark,clark.com
-Lifehacker - Two Cents,twocents.lifehacker.com/
-Home Business Magagazine,homebusinessmag.com/
-Bang Shift,bangshift.com/
-Parade.com,parade.com/
-CR We World,crweworld.com/
-Quick and Dirty Tips,www.quickanddirtytips.com/
-AOL,www.aol.com/
-CBS News,cbsnews.com
-Yahoo! Finance,finance.yahoo.com
-Go.com,go.com
-NBC News,nbcnews.com
-CBS Local,cbslocal.com
-Digital Trends,digitaltrends.com
-Fox News,foxnews.com
-iHeart,iheart.com
-Lonley Planet,lonelyplanet.com
-Yahoo! News,news.yahoo.com
-Globe and Mail,theglobeandmail.com
-The Balance,thebalance.com
-Slash Dot,slashdot.org
-Inquirer,inquirer.com
-Life Hack,lifehack.org
-Best Seven Reviews,bestsevenreviews.com
-Complex,complex.com
-Insider.com,insider.com
-Breitbart,breitbart.com
-The Intercept,theintercept.com
-Multi-Briefs,multibriefs.com
-The Worlds News,theworldnews.net
-Considerable.com,considerable.com
-Econotimes,econotimes.com
-Cu-Insights,cuinsight.com
-Insurance Thought Leadership,insurancethoughtleadership.com
-Legal Examiner,legalexaminer.com
-USA Attorneys,usattorneys.com
-Motor Week,motorweek.org
-Travelwire News,travelwirenews.com
-Advisor News,advisornews.com
-Coverager,coverager.com
-DMagazine,dmagazine.com
-NECN,necn.com
-Inside Hook,insidehook.com
-Vents Magazine,ventsmagazine.com
-Claims Journal,claimsjournal.com
-Demotix,demotix.com
-News Blze,newsblaze.com
-T2 Online,t2conline.com
-Consumer Watchdog,consumerwatchdog.org
+Major (Media) Publisher
+abcnews.go.com
+foxnews.com
+mashable.com
+finance.yahoo.com
+slate.com
+fortune.com
+nymag.com
+lifehacker.com
+qz.com
+ehow.com
+venturebeat.com
+apnews.com
+adweek.com
+thenextweb.com
+metro.co.uk
+sports.yahoo.com
+observer.com
+people.com
+goodhousekeeping.com
+flipboard.com
+jezebel.com
+thebalancesmb.com
+theweek.com
+money.com
+kqed.org
+womenshealthmag.com
+bigthink.com
+ello.co
+hackernoon.com
+marieclaire.com
+parade.com
+thriveglobal.com
+mymodernmet.com
+heavy.com
+activerain.com
+smallbusiness.chron.com
+myrecipes.com
+greatist.com
+food52.com
+fashionista.com
+sg.news.yahoo.com
+wmagazine.com
+hellogiggles.com
+townandcountrymag.com
+goodmenproject.com
+thefrisky.com
+fstoppers.com
+ruffledblog.com
+xconomy.com
+tech.co
+oncewed.com
+bizfluent.com
+msmagazine.com
+theeverygirl.com
+bitrebels.com
+clark.com
+ventsmagazine.com
+junebugweddings.com
+bestlifeonline.com
+spoonuniversity.com
+ph.news.yahoo.com
+allwomenstalk.com
+offbeatbride.com
+studybreaks.com
+coolmompicks.com
+twocents.lifehacker.com
+7x7.com
+sg.style.yahoo.com
+sayyes.com
+snippetandink.com
+verilymag.com
+bridalmusings.com
+pizzazzerie.com
+ecosalon.com
+somethingturquoise.com
+in.style.yahoo.com
+homebusinessmag.com
+ca.style.yahoo.com
+marketbusinessnews.com
+informationweek.com
+styleblueprint.com
+fashionisers.com
+budgeting.thenest.com
+brightestyoungthings.com
+spyrestudios.com
+money.yahoo.com
+weddingbells.ca
+designbump.com
+southernweddings.com
+theeverylastdetail.com
+whimsicalwonderlandweddings.com
+bespoke-bride.com
+ravishly.com
+bellethemagazine.com
+dnyuz.com
+happywedd.com
+insideweddings.com
+womendailymagazine.com
+singaporebrides.com
+women2.com
+coolmomtech.com
+blog.cheapism.com
+colorlabsproject.com
+money.ca
+hellomay.com.au
+dailymom.com
+acelebrationofwomen.org
+babygizmo.com
+mamiverse.com
+stylemepretty.com
+thetempest.co
+better.net
+surfandsunshine.com
+thetylt.com
+travelwirenews.com
+strictlyweddings.com
+pandagossips.com
+allurebridals.com
+lifehack.org
+aol.ca
+internewscast.com
+kontrolmag.com
+smartbrief.com
+communalnews.com
+destinationluxury.com
+californiaweddingday.com
+socialifestylemag.com
+southernliving.com
+weddedwonderland.com
+me.popsugar.com
+thehauterfly.com
+bridesonamission.com
+trueclassics.net
+decorobject.com
+democraticunderground.com
+mrstobe.com
+women.com
+vidmid.com
+baucemag.com
+wedding.allwomenstalk.com
+vabridemagazine.com
+diypick.com
+plannerslounge.com
+atouchofbusiness.com
+gayweddingsmag.com
+idevie.com
+weddingmarketnews.com
+savethedatemagazine.co.uk
+himisspuff.com
+weddingsdigest.com
+fashionpotluck.com
+feedleader.com
+exquisitemag.com
+blog.vagaro.com
+econotimes.com
+edition.cnn.com
+myspace.com
+time.com
+gizmodo.com
+hbr.org
+mtv.com
+ew.com
+techradar.com
+slashdot.org
+genius.com
+newrepublic.com
+pitchfork.com
+reason.com
+dailycaller.com
+fivethirtyeight.com
+jalopnik.com
+townhall.com
+vogue.co.uk
+talkingpointsmemo.com
+perezhilton.com
+truthout.org
+uproxx.com
+geekwire.com
+pjmedia.com
+pagesix.com
+digiday.com
+laughingsquid.com
+homeguides.sfgate.com
+www1.cbn.com
+hyperallergic.com
+thefederalist.com
+inews.co.uk
+hotair.com
+therealdeal.com
+vancouversun.com
+yourstory.com
+9news.com.au
+in.news.yahoo.com
+247wallst.com
+montrealgazette.com
+laist.com
+matadornetwork.com
+dotdash.com
+news.avclub.com
+fliphtml5.com
+religionnews.com
+thegrio.com
+lfpress.com
+theawl.com
+popculture.com
+extratv.com
+guardianlv.com
+www2.ljworld.com
+christiantoday.com
+toronto.citynews.ca
+gearpatrol.com
+thedodo.com
+investorplace.com
+sojo.net
+ny.eater.com
+news.cision.com
+edmontonjournal.com
+kidsactivitiesblog.com
+kumparan.com
+e27.co
+toofab.com
+sfist.com
+realself.com
+world.wng.org
+aleteia.org
+traveltips.usatoday.com
+thenewdaily.com.au
+artdaily.com
+designshack.net
+work.chron.com
+dlisted.com
+americablog.com
+newsblaze.com
+dailyhive.com
+rollingout.com
+coconuts.co
+junkee.com
+komando.com
+blogs.timesofisrael.com
+acidcow.com
+decider.com
+themorningnews.org
+au.lifestyle.yahoo.com
+news.wttw.com
+nextshark.com
+dailyvoice.com
+popcrush.com
+jewishweek.timesofisrael.com
+rismedia.com
+coed.com
+currently.att.yahoo.com
+vegnews.com
+mumbrella.com.au
+insurancenewsnet.com
+windsorstar.com
+isthmus.com
+bbook.com
+sg.finance.yahoo.com
+sf.eater.com
+jonathanturley.org
+rare.us
+boss.blogs.nytimes.com
+fashionmagazine.com
+etcanada.com
+newsroom.hilton.com
+startupnation.com
+socialmediaexplorer.com
+thenewcivilrightsmovement.com
+moneyinc.com
+gazettereview.com
+lockergnome.com
+nz.news.yahoo.com
+fashionbeans.com
+dealbreaker.com
+hoodline.com
+onlineprnews.com
+spacecoastdaily.com
+thelineofbestfit.com
+blavity.com
+answersafrica.com
+reformjudaism.org
+bringmethenews.com
+fashionweekdaily.com
+austin.culturemap.com
+betakit.com
+narratively.com
+pocketsense.com
+looktothestars.org
+lifestyle.howstuffworks.com
+blog.aarp.org
+trinidadexpress.com
+thefw.com
+leaderpost.com
+departures.com
+thestarphoenix.com
+total-croatia-news.com
+bethesdamagazine.com
+tcdailyplanet.net
+swimsuit.si.com
+sandrarose.com
+wiki.ezvid.com
+303magazine.com
+westchestermagazine.com
+churchleaders.com
+collegecandy.com
+fontmeme.com
+kveller.com
+getreligion.org
+vulcanpost.com
+justgiving.com
+glidemagazine.com
+hypebae.com
+worldofwonder.net
+womensmediacenter.com
+bestinau.com.au
+theblemish.com
+jewishinsider.com
+associationsnow.com
+bulawayo24.com
+who.com.au
+pridesource.com
+insidehighered.com
+in.pcmag.com
+themorningbulletin.com.au
+in.mashable.com
+dc.eater.com
+blackchristiannews.com
+retailwire.com
+runningmagazine.ca
+glaminati.com
+blazepress.com
+honey.nine.com.au
+thedisneyblog.com
+pmcaonline.org
+worldofbuzz.com
+bustedcoverage.com
+sheerluxe.com
+straightfromthea.com
+topyaps.com
+nickiswift.com
+2paragraphs.com
+wiwibloggs.com
+mentalitch.com
+nativenewsonline.net
+socialnewsdaily.com
+valleyadvocate.com
+theawesomedaily.com
+southafricatoday.net
+thehumanist.com
+blueandgreentomorrow.com
+wildfiretoday.com
+shilpaahuja.com
+grbj.com
+jewcy.com
+vegasnews.com
+corporate.bestbuy.com
+hvmag.com
+sf.funcheap.com
+digboston.com
+prwire.com.au
+press.fourseasons.com
+pulptastic.com
+sg.theasianparent.com
+cpbj.com
+weta.org
+celebmix.com
+thestacker.com
+clclt.com
+latterdaysaintmag.com
+coinweek.com
+yen.com.gh
+tribunecontentagency.com
+instylemag.com.au
+persephonemagazine.com
+geomarketing.com
+baptistnews.com
+cartermatt.com
+dr1.com
+mustsharenews.com
+alldaychic.com
+bellomag.com
+dailyentertainmentnews.com
+theinscribermag.com
+cbn.com
+thegavoice.com
+justrichest.com
+sportsgossip.com
+articlebio.com
+sgbonline.com
+goodyfeed.com
+exchange.telstra.com.au
+dailynewsdig.com
+hyphenmagazine.com
+vcreporter.com
+rangefinderonline.com
+theinterrobang.com
+qrius.com
+baltimorefishbowl.com
+en.newsner.com
+viewthevibe.com
+rvcj.com
+hottytoddy.com
+thebossmagazine.com
+moguldom.com
+ecowarriorprincess.net
+expressdigest.com
+lucire.com
+atlantajewishtimes.timesofisrael.com
+nashvillelifestyles.com
+sflcn.com
+instoremag.com
+liverampup.com
+fadmagazine.com
+coronadotimes.com
+mbird.com
+awesomejelly.com
+livingonthecheap.com
+gomag.com
+caamedia.org
+fabiosa.com
+christyscozycorners.com
+infinigeek.com
+lady.co.uk
+wibx950.com
+ca.movies.yahoo.com
+presstories.com
+ameyawdebrah.com
+shorefire.com
+klaq.com
+onobello.com
+allpeers.com
+timebusinessnews.com
+newstalkkgvo.com
+faveable.com
+sundiatapost.com
+glamourfame.com
+abc10up.com
+aceshowbiz.com
+luxedb.com
+vivaglammagazine.com
+menstylefashion.com
+goqnotes.com
+1stslice.com
+nywift.org
+molempire.com
+eprnews.com
+millennialmagazine.com
+brightbazaar.blogspot.com
+magazine.promomarketing.com
+deepsouthmag.com
+eventingnation.com
+foxwilmington.com
+davidsbeenhere.com
+hivisasa.com
+beverlyhillsmagazine.com
+nancyfriedman.typepad.com
+nationalweddingshow.co.uk
+thebertshow.com
+superbhub.com
+conversationsabouther.net
+statuswish.com
+mopays.com
+justdestinymag.com
+femalemag.com.my
+thecelebscloset.com
+us.yahoo.com
+northernvirginiamag.com
+lakewood.advocatemag.com
+livinginthisseason.com
+womenpla.net
+naludamagazine.com
+fmag.com
+fault-magazine.com
+week99er.com
+marrieddivorce.com
+planomagazine.com
+newsanyway.com
+newsradio1310.com
+pizzabottle.com
+incredibleplanet.net
+eventstocelebrate.net
+cowgirlmagazine.com
+thecarousel.com
+isitvivid.com
+alwaysmountaintime.com
+bachelornation.com
+emptylighthouse.com
+thestylishcity.com
+faze.ca
+betterafter50.com
+hitberry.com
+irishtatler.com
+forevertwentysomethings.com
+officiallykmusic.com
+youaremom.com
+fashionablymale.net
+knowstartup.com
+idealmagazine.co.uk
+cairo360.com
+scubby.com
+smartercx.com
+houseofcoco.net
+seenthemagazine.com
+urbanfaith.com
+emag.co.uk
+geek.cheezburger.com
+ans-wer.com
+bagaholicboy.com
+powerfulmind.co
+christiantimes.com
+madeinshoreditch.co.uk
+oakcliff.advocatemag.com
+dailywaffle.co.uk
+mommyish.com
+drinkmemag.com
+karryon.com.au
+wheretraveler.com
+hipandhealthy.com
+asmzine.com
+yourdailydish.com
+alongtheboards.com
+echomag.com
+everydaypartymag.com
+themazatlanpost.com
+revelryeventdesigners.com
+laramielive.com
+germmagazine.com
+charactermedia.com
+morethanthecurve.com
+fuzzable.com
+howng.com
+midlifeboulevard.com
+discoversg.com
+luxebeatmag.com
+thewhisp.mommyish.com
+wowplus.net
+onlinedrifts.com
+life.shared.com
+divagalsdaily.com
+nextgenmilspouse.com
+953thebear.com
+1stnews.com
+gator995.com
+cedarcityutah.com
+mix1043fm.com
+ilovefc.com
+1075zoofm.com
+catcountry1029.com
+b105country.com
+lonestar995fm.com
+95rockfm.com
+kncifm.com
+classicrock1051.com
+thefishatlanta.com
+y108.ca
+everylifecounts.ndtv.com
+kffm.com
+991thewhale.com
+rachfeed.com
+classicrock961.com
+blabbermouth.herokuapp.com
+highway989.com
+twnews.us
+instant.com.pk
+idealbridemagazine.co.uk
+clevelandmusicgroup.com
+news.bpmsupreme.com
+stylereportmagazine.com
+thefabulousreport.com
+mutually.com
+25magazine.com
+thedigestonline.com
+iprodominicana.com
+distincttoday.net
+holrmagazine.com
+jumpradio.ca
+memphisparent.com
+mylifeonandofftheguestlist.com
+platformmagazine.org
+hermag.co
+archiobjects.org
+figgy.net
+thepapercrafting.com
+redcoolmedia.net
+thefishportland.com
+tlcafrica.com
+networkconnecticut.com
+moneyat30.com
+photoboothint.com
+hub.awin.com
+thesloaney.com
+mymagic949.com
+slingwords.blogspot.com
+canadabayclub.com.au
+thedatingdirectory.co
+harkeraquila.com
+socialprchat.com
+german-world.com
+houstonpublicmedia.org
+neighborhoodseen.com
+weoa985fm.com
+bellamag.co
+1037thepeak.com

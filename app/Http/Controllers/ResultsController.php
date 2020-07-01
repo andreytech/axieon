@@ -60,6 +60,7 @@ class ResultsController extends Controller
             $filters['unique_scope'] = '';
         }
         $query = $this->applySearchFilters($query, $filters, 0);
+        $query->limit(20);
         $backlinks = $query->get();
 
         foreach ($backlinks as $key => $backlink) {
@@ -122,10 +123,10 @@ class ResultsController extends Controller
         $your_url = $request->input('your_url');
         $search_params = $request->input('search_params');
 
-        $serp_results_count = 15;
+        $serp_results_count = 5;
 //        dd($search_params);
         if(!$keyword_id) {
-            return view('search', [
+            return view('keyword_results.wedding_data', [
                 'keyword' => '',
                 'keyword_id' => '',
                 'your_url' => '',
@@ -315,6 +316,7 @@ class ResultsController extends Controller
         }
 
         $query = $this->applySearchFilters($query, $search_params, 0);
+        $query->limit(20);
         $publishers = $query->get();
 
         foreach ($publishers as $publisher) {
@@ -325,7 +327,7 @@ class ResultsController extends Controller
         }
 
 //            dd($serp_on_date);
-        return view('results', [
+        return view('keyword_results.results', [
             'serp_results' => $serp_results,
             'serp' => $serps[0],
             'keyword' => $keyword,

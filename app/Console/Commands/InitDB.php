@@ -38,8 +38,8 @@ class InitDB extends Command
      */
     public function handle()
     {
-        Artisan::call('import:keywords');
-        echo Artisan::output();
+//        Artisan::call('import:keywords');
+//        echo Artisan::output();
         Artisan::call('serp:import');
         echo Artisan::output();
         Artisan::call('potentialcustomers:import');
