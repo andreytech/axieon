@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ResultsController@show');
+Route::view('/', 'home')->name('home');
+Route::get('/analyze_backlinks', 'ResultsController@show')->name('analyze_backlinks');
 Route::post('/results/get_keywords', 'ResultsController@getKeywords');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

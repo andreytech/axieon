@@ -44,19 +44,19 @@ class ImportBL extends Command
      */
     public function handle()
     {
-        $domains_from_serp = DB::table('domains')
-            ->where('is_from_serp', 1)
-            ->pluck('id', 'domain');
-        $domains_bu = DB::table('domains')
-            ->where('is_major', 1)
-            ->orWhere('is_minor', 1)
-            ->orWhere('is_local', 1)
-            ->pluck('id', 'domain');
+//        $domains_from_serp = DB::table('domains')
+//            ->where('is_from_serp', 1)
+//            ->pluck('id', 'domain');
+//        $domains_bu = DB::table('domains')
+//            ->where('is_major', 1)
+//            ->orWhere('is_minor', 1)
+//            ->orWhere('is_local', 1)
+//            ->pluck('id', 'domain');
 
         $manager = new Manager(new Cache(), new CurlHttpClient());
         $rules = $manager->getRules();
 
-        $filepath = 'storage/Backlink Universe (BU) Weddings (Final).csv';
+        $filepath = 'storage/withjoy.csv';
         $file_handle = fopen($filepath, 'r');
         if(!$file_handle) {
             return;
@@ -74,11 +74,11 @@ class ImportBL extends Command
                 continue;
             }
             $link_from = trim($data[0]);
-            $referring_page_title = trim($data[2]);
-            $link_to = trim($data[3]);
-            $link_anchor = trim($data[4]);
-            $following_terms = trim($data[5]);
-            $first_seen = trim($data[6]);
+            $referring_page_title = trim($data[1]);
+            $link_to = trim($data[2]);
+            $link_anchor = trim($data[3]);
+            $following_terms = trim($data[4]);
+            $first_seen = trim($data[5]);
 
             // TLD from
             $domain_from = parse_url($link_from, PHP_URL_HOST);
@@ -139,15 +139,17 @@ class ImportBL extends Command
 
 
             if($first_seen) {
-                $date = date_create_from_format('d-m-y H:i', $first_seen);
-                if($date !== false) {
-                    $first_seen = date_format($date, 'Y-m-d H:i:s');
-                }else {
-                    $first_seen = date("Y-m-d H:i:s");
-                }
+//                $date = date_create_from_format('d-m-y H:i', $first_seen);
+//                if($date !== false) {
+//                    $first_seen = date_format($date, 'Y-m-d H:i:s');
+//                }else {
+//                    $first_seen = date("Y-m-d H:i:s");
+//                }
+                $first_seen = date("Y-m-d H:i:s", strtotime($first_seen));
             }else {
                 $first_seen = date("Y-m-d H:i:s");
             }
+//            dd($first_seen);
 
             $domain_backlinks_count++;
 

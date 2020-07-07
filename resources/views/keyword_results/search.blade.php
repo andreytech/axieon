@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css?version=1589150987">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style_new.css?version=1589150987">
     <style type="text/css" href="./assets/css/apexcharts.css?version=1"></style>
 </head>
 <body data-gr-c-s-loaded="true">
@@ -14,48 +14,86 @@
     <!-- start sidemneu -->
     <!-- sidemenu -->
     <!-- wrap -->
-    <div class="ax-top-nav">
-        <!-- trigger-menu -->
-        <button id="ax-trigger-mobile-menu" class="ax-btn ax-dash-menu-trigger hamburger hamburger--slider"
-                type="button">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-        </button>
-        <div class="nav-logo">
-            <a href="#">
-                <!--?xml version="1.0" encoding="UTF-8"?-->
-                <svg class="ax-icon logo-color" width="370px" height="370px" viewBox="0 0 370 370" version="1.1"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-                    <title>logo-icon</title>
-                    <desc>Created with Sketch.</desc>
-                    <g id="logo-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Group-5" transform="translate(0.000000, 1.000000)">
-                            <path d="M184.186,0.506458249 C82.4656,0.506458249 0,82.8595092 0,184.38298 L0,184.38298 C0,207.792159 4.3512,230.152726 12.4024,250.740989 L12.4024,250.740989 C8.6136,226.268427 16.2208,200.40756 35.1056,181.547294 L35.1056,181.547294 L126.9396,89.9339553 C158.5524,58.3278705 209.8344,58.3278705 241.4324,89.9339553 L241.4324,89.9339553 L333.2516,181.547294 C352.2104,200.40756 359.8176,226.268427 356.0288,250.740989 L356.0288,250.740989 C364.0652,230.152726 368.4164,207.792159 368.4164,184.38298 L368.4164,184.38298 C368.4164,82.8595092 285.9656,0.506458249 184.186,0.506458249 Z"
-                                  id="Fill-1" fill="#2ADCBD"></path>
-                            <path d="M260.027576,242.06739 C242.660934,265.00338 215.211866,279.889578 184.209522,279.889578 C153.207177,279.889578 125.772915,265.00338 108.391467,242.082188 L108.302635,242.170972 L44.9654665,305.474305 C78.810433,344.361906 128.630342,368.984801 184.194716,368.984801 C239.818312,368.984801 289.623415,344.361906 323.409161,305.474305 L260.086798,242.12658 L260.027576,242.06739 Z"
-                                  id="Fill-4" fill="#3923B3"></path>
-                            <path d="M356.102273,251.272861 C348.3887,271.278963 337.269903,289.568565 323.412122,305.475784 L260.089759,242.12806 L211.765187,193.814507 C196.545316,178.617564 171.90926,178.617564 156.674583,193.814507 L108.305596,242.172452 L44.9684276,305.475784 C31.1846727,289.568565 20.0510704,271.278963 12.3374975,251.272861 C8.56214038,226.753548 16.172076,200.843278 35.0636671,181.946981 L126.930691,90.1438318 C158.540054,58.506963 209.840495,58.506963 241.464664,90.1438318 L333.316882,181.946981 C352.267695,200.843278 359.87763,226.753548 356.102273,251.272861"
-                                  id="Fill-6" fill="#F9397B"></path>
-                            <path d="M108.388506,242.082188 L108.299674,242.170972 L44.9625055,305.474305 C45.2586119,305.814645 45.5695237,306.125391 45.8656301,306.465731 L134.712368,265.802441 C124.555917,259.557932 115.569087,251.567329 108.388506,242.082188"
-                                  id="Fill-8" fill="#271D66"></path>
-                            <path d="M259.621911,242.082188 L259.725548,242.170972 L323.047911,305.474305 C322.76661,305.814645 322.440893,306.125391 322.159591,306.465731 L233.298048,265.802441 C243.469304,259.557932 252.441329,251.567329 259.621911,242.082188"
-                                  id="Fill-10" fill="#271D66"></path>
-                        </g>
-                    </g>
-                </svg>
+    <header class="ax-home-header">
+        <div class="wrap">
+            <a href="{{ route('home') }}" class="ax-home-header__logo">
+                <img src="assets/images/ax-logo.svg" alt="axieon-logo">
             </a>
-        </div><!-- logo -->
 
-        <!-- membership -->
-        <a href="#" class="ax-member-menu">
-            <div class="ax-member-menu--logo">
-                AE
+            <div class="ax-home-header__nav-container" style="
+    float: right;
+    margin: 0;
+">
+                <nav class="ax-home-header__navigation" style="
+    margin: auto;
+    float: right;
+    width: auto;
+">
+
+                    <div class="ax-home-header__btns-container" style="
+    float: right;
+">
+                        <a href="{{ route('analyze_backlinks') }}" class="ax-btn ax-btn--transparent" style="
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 12px 30px;
+    text-decoration: none;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    display: inline-block;
+    text-align: center;
+    background: #3923b3;
+    border: 1px solid #3923b3;
+    -webkit-box-shadow: 0 3px 6px 0 rgba(244,58,122,0.3);
+    box-shadow: 0 3px 6px 0 rgba(33, 209, 178, 0.28);
+    color: #3923b3;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: "biennaleregular";
+">ANALYZE BACKLINKS</a>
+                        {{--<a href="#" class="ax-btn" style="
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 12px 30px;
+    text-decoration: none;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    display: inline-block;
+    text-align: center;
+    background: #3923b3;
+    border: 1px solid #404040;
+    /* -webkit-box-shadow: 0 3px 6px 0 rgba(244,58,122,0.3); */
+    box-shadow: 0 3px 6px 0 rgba(195, 195, 195, 0.3);
+    color: #ffffff;
+">ACCOUNT</a>--}}
+                        <a class="ax-btn" href="{{ route('logout') }}" style="display: inline;"
+                        onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                    </div>
+                </nav>
             </div>
-        </a><!-- membership -->
 
-    </div>    <!-- ax-top -->
+            <!-- end ax-home-header__nav-container-->
+
+            <button id="ax-menu-trigger" class="ax-btn ax-btn--menu hamburger hamburger--slider" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+            </button>
+
+        </div>
+    </header>
     <div class="ax-top ax-top--one-btn">
         <div class="wrap page-slide" style="
     margin-top: 25px;
