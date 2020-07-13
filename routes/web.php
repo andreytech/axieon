@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home')->name('home');
-Route::get('/analyze_backlinks', 'ResultsController@show')->name('analyze_backlinks');
+Route::get('/analyze_backlinks', 'ResultsController@show')->name('analyze_backlinks')
+    ->middleware('verified');
 Route::post('/results/get_keywords', 'ResultsController@getKeywords');
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
